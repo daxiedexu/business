@@ -10,13 +10,10 @@
     tools:context=".MainActivity">
     <com.zhang.common.utils.page.NoScrollViewPager
         android:id="@+id/act_main_noScrollViewPager"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp">
+        style="@style/NoScrollViewPagerStyle">
     </com.zhang.common.utils.page.NoScrollViewPager>
     <com.ashokvarma.bottomnavigation.BottomNavigationBar
         android:id="@+id/act_main_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="56dp">
+        style="@style/bottomStyle">
     </com.ashokvarma.bottomnavigation.BottomNavigationBar>
 </LinearLayout>

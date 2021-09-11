@@ -1,0 +1,13 @@
+<resources
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:test="http://schemas.android.com/res/com.zhufuing" >
+    <style name="NoScrollViewPagerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+    <style name="bottomStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+    </style>
+</resources>
