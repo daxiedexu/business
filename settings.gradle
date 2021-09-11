@@ -1,0 +1,11 @@
+rootProject.name = "Business"
+include ':app'
+include ':net'
+include ':mvp_core'
+include ':common'
+include ':shopcar'
+include ':resource'
+include ':home'
+include ':kinds'
+include ':message'
+include ':person'
