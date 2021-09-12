@@ -12,14 +12,17 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/glide" />
             <option value="$PROJECT_DIR$/home" />
             <option value="$PROJECT_DIR$/kinds" />
             <option value="$PROJECT_DIR$/message" />
             <option value="$PROJECT_DIR$/mvp_core" />
             <option value="$PROJECT_DIR$/net" />
             <option value="$PROJECT_DIR$/person" />
+            <option value="$PROJECT_DIR$/picasso" />
             <option value="$PROJECT_DIR$/resource" />
             <option value="$PROJECT_DIR$/shopcar" />
+            <option value="$PROJECT_DIR$/testphoto" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
