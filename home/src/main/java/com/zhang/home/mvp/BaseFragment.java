@@ -27,9 +27,7 @@ public abstract class BaseFragment extends Fragment implements IFragment {
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @org.jetbrains.annotations.NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        if (baseView==null){
-            baseView = inflater.inflate(bandLayout(),container,false);
-        }
+        baseView = inflater.inflate(bandLayout(),container,false);
         return baseView;
     }
 
