@@ -1,19 +1,14 @@
 package com.zhang.home;
 
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
-import androidx.annotation.NonNull;
-
+import com.youth.banner.Banner;
 import com.zhang.common.utils.page.TextSwitcherAnimation;
 import com.zhang.home.mvp.BaseFragment;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +16,7 @@ import java.util.List;
 public class HomeFragment extends BaseFragment {
     private static final String TAG = "HomeFragment";
     private TextSwitcher fgHomeTextSwitcher;
+    private Banner fgHomeBanner;
     @Override
     public int bandLayout() {
         return R.layout.fragment_home;
@@ -28,6 +24,7 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void initView() {
+        fgHomeBanner = (Banner) findViewById(R.id.fg_home_banner);
         fgHomeTextSwitcher = (TextSwitcher) findViewById(R.id.fg_home_textSwitcher);
     }
 

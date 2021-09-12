@@ -3,6 +3,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.1"
@@ -64,7 +65,6 @@ appConfig {
             mainActivity ".MainActivity"
             isRunAlone false
         }
-
     }
 }
 apply from : "gradles/Base.gradle"
@@ -73,6 +73,7 @@ allprojects {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
     }
 }
 

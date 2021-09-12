@@ -4,8 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
+    <LinearLayout
+        android:id="@+id/head"
+        android:orientation="horizontal"
+        android:background="#ff8800"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+    </LinearLayout>
+    <com.youth.banner.Banner
+        android:id="@+id/fg_home_banner"
+        android:layout_below="@id/head"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+    </com.youth.banner.Banner>
     <TextSwitcher
         android:id="@+id/fg_home_textSwitcher"
+        android:layout_below="@id/fg_home_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </TextSwitcher>
