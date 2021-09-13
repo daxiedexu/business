@@ -5,6 +5,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.zhang.common.utils.back.ProgressManger;
 
 /**
@@ -26,5 +27,16 @@ public class App extends Application {
         if (!TextUtils.isEmpty(result)&&result.equalsIgnoreCase(getPackageName())){
             Log.i(TAG, String.format("当前初始化进程是：%s",getPackageName()));
         }
+
+
+        // 必须在初始化ARouter之前配置
+        if (BuildConfig.DEBUG){
+            // 日志开启
+            ARouter.openLog();
+            // 调试模式开启，如果在install run模式下运行，则必须开启调试模式
+            ARouter.openDebug();
+        }
+        ARouter.init(this);
+
     }
 }
