@@ -10,19 +10,19 @@
     <LinearLayout
         android:background="@drawable/bg_me_header"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="@dimen/dp200">
 
         <ImageView
             android:id="@+id/person_img"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:layout_gravity="center"
             android:src="@drawable/icon_default_user"
-            android:layout_width="60dp"
-            android:layout_height="60dp">
+            android:layout_width="@dimen/dp60"
+            android:layout_height="@dimen/dp60">
         </ImageView>
 
         <TextView
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp10"
             android:layout_gravity="center"
             android:textColor="@color/white"
             android:text="登录/注册"
@@ -39,30 +39,31 @@
         <TextView
             style="@style/Person_Order"
             android:drawableTop="@drawable/icon_order_wait_pay"
-            android:text="待付款">
+            android:text="@string/person_obligation">
         </TextView>
 
         <TextView
             style="@style/Person_Order"
             android:drawableTop="@drawable/icon_order_wait_confirm"
-            android:text="待付款">
+            android:text="@string/person_receiving">
         </TextView>
 
         <TextView
             style="@style/Person_Order"
             android:drawableTop="@drawable/icon_order_completed"
-            android:text="待付款">
+            android:text="@string/person_completed">
         </TextView>
 
         <View style="@style/Person_cross"></View>
         <TextView
             style="@style/Person_Order"
             android:drawableTop="@drawable/icon_order"
-            android:text="待付款">
+            android:text="@string/person_my_order">
         </TextView>
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="@dimen/dp20"
         android:background="@color/white"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -70,22 +71,22 @@
         <TextView
             style="@style/Person_Item"
             android:drawableLeft="@drawable/ic_live"
-            android:text="我要直播">
+            android:text="@string/person_live">
         </TextView>
         <TextView
             style="@style/Person_Item"
             android:drawableLeft="@drawable/icon_address"
-            android:text="收货管理">
+            android:text="@string/person_goods">
         </TextView>
         <TextView
             style="@style/Person_Item"
             android:drawableLeft="@drawable/icon_share"
-            android:text="分享">
+            android:text="@string/person_share">
         </TextView>
         <TextView
             style="@style/Person_Item"
             android:drawableLeft="@drawable/icon_setting"
-            android:text="设置">
+            android:text="@string/person_set">
         </TextView>
     </LinearLayout>
 

@@ -18,8 +18,8 @@ import javax.inject.Inject;
  * @Date 2021/9/3 10:01
  * User: msi
  */
-public abstract class BaseFragment<P extends IPresenter> extends Fragment implements IView, IFragment {
-    protected P presenter;
+public abstract class BaseFragment<P extends IPresenter> extends Fragment {
+    protected P pPresenter;
     protected View view;
 
     @Nullable
@@ -27,6 +27,8 @@ public abstract class BaseFragment<P extends IPresenter> extends Fragment implem
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable  Bundle savedInstanceState) {
         return view=inflater.inflate(bindLayout(),container,false);
     }
+
+    protected abstract int bindLayout();
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -36,13 +38,21 @@ public abstract class BaseFragment<P extends IPresenter> extends Fragment implem
         initInject();
     }
 
-    @Override
-    public void showToast(String msg) {
-        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
-    }
+    protected abstract void initInject();
+
+    protected abstract void initData();
+
+    protected abstract void initView();
 
     @Override
-    public <T extends View> T findViewById(int id) {
-        return view.findViewById(id);
+    public void onDestroy() {
+        super.onDestroy();
+        if (pPresenter!=null){
+            pPresenter.destory();
+            pPresenter=null;
+        }
+        if (view!=null){
+            view=null;
+        }
     }
 }

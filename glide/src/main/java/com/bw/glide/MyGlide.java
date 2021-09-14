@@ -3,6 +3,7 @@ package com.bw.glide;
 import android.content.Context;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bw.testphoto.Test;
 
 /**
@@ -20,12 +21,10 @@ public class MyGlide implements Test {
     @Override
     public void set(String uri, Context context, ImageView view) {
         Glide.with(context).load(uri).error(R.drawable.b).placeholder(R.drawable.a).into(view);
-
     }
 
     @Override
     public void setCircular(String uri, Context context, ImageView view) {
-        Glide.with(context).load(uri).error(R.drawable.b).placeholder(R.drawable.a).into(view);
-
+        Glide.with(context).load(uri).transform(new CircleCrop()).error(R.drawable.b).placeholder(R.drawable.a).into(view);
     }
 }
