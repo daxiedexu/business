@@ -14,6 +14,9 @@
         <!-- Customize your theme here. -->
     </style>
 
+
+
+    <!-- person页面 -->
         <style name="Person_Order">
             <item name="android:layout_weight">1</item>
             <item name="android:layout_width">0dp</item>
@@ -23,15 +26,19 @@
 
 
         <style name="Person_Item">
+            <item name="android:paddingLeft">@dimen/dp10</item>
+            <item name="android:background">@drawable/underline</item>
             <item name="android:gravity">center_vertical</item>
             <item name="android:layout_width">match_parent</item>
             <item name="android:layout_height">wrap_content</item>
             <item name="android:drawableRight">@drawable/icon_arrow</item>
         </style>
     
-    <style name="Person_cross">
-        <item name="android:background">@color/gray2</item>
-        <item name="android:layout_width">5px</item>
-        <item name="android:layout_height">match_parent</item>
-    </style>
+        <style name="Person_cross">
+            <item name="android:background">@color/gray2</item>
+            <item name="android:layout_width">5px</item>
+            <item name="android:layout_height">match_parent</item>
+        </style>
+    <!-- person页面 -->
+
 </resources>
