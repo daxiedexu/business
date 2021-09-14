@@ -42,7 +42,7 @@ public class SharedManger {
         editor.commit();
     }
 
-    //清楚所有sp数据
+    //清除所有sp数据
     public void clearAll(){
         editor.clear();
         editor.commit();
