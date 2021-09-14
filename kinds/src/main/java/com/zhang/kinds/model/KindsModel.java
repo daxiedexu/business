@@ -17,8 +17,5 @@ public class KindsModel implements KindsContrant.kindsModel {
         return null;
     }
 
-    @Override
-    public void destory() {
 
-    }
 }
