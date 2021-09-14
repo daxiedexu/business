@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">Business</string>
     <string name="app">Business</string>
+
+
+    <!-- person页面 -->
+    <string name="person_live">我要直播</string>
+    <string name="person_goods">收货管理</string>
+    <string name="person_share">分享</string>
+    <string name="person_set">设置</string>
+    <string name="person_obligation">待付款</string>
+    <string name="person_receiving">待收货</string>
+    <string name="person_completed">已完成</string>
+    <string name="person_my_order">我的订单</string>
+    <!-- person页面 -->
+
+
+
+
+
+
+
 </resources>

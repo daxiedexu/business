@@ -4,7 +4,6 @@ import android.app.Application;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
-
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zhang.common.utils.back.ProgressManger;
 
