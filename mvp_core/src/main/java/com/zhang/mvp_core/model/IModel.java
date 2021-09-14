@@ -7,5 +7,5 @@ package com.zhang.mvp_core.model;
  * User: msi
  */
 public interface IModel {
-    void destory();
+
 }
