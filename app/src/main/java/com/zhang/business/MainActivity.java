@@ -3,12 +3,15 @@ package com.zhang.business;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.zhang.business.adapter.FragmentAdapter;
+import com.zhang.common.utils.back.LogUtils;
+import com.zhang.common.utils.back.SharedManger;
 import com.zhang.common.utils.page.NoScrollViewPager;
 import com.zhang.common.utils.page.StatusBarColorUtils;
 import com.zhang.home.HomeFragment;
@@ -74,11 +77,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
     @Override
     public void onTabUnselected(int position) {
-
     }
 
     @Override
     public void onTabReselected(int position) {
-
     }
 }
