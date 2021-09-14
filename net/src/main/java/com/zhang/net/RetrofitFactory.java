@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.zhang.net.Bean.TokenRespEntity;
 import com.zhang.net.api.TokenApi;
-import com.zhang.net.common.Config;
+import com.zhang.net.common.NetConfig;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -62,9 +62,9 @@ public class RetrofitFactory {
         OkHttpClient build=new OkHttpClient.Builder( )
                 .addInterceptor(createInterceptor())
                 .addNetworkInterceptor(createNetworkInterceptor())
-                .readTimeout(2000, TimeUnit.MINUTES)
-                .writeTimeout(2000, TimeUnit.MINUTES)
-                .connectTimeout(2000, TimeUnit.MINUTES)
+                .readTimeout(NetConfig.TIMEOUT, TimeUnit.MINUTES)
+                .writeTimeout(NetConfig.TIMEOUT, TimeUnit.MINUTES)
+                .connectTimeout(NetConfig.TIMEOUT, TimeUnit.MINUTES)
                 .build( );
 
         return build;
@@ -102,7 +102,7 @@ public class RetrofitFactory {
 
     private String requestToken() {
         TokenApi tokenApi=create(TokenApi.class);
-        Call<TokenRespEntity> password=tokenApi.getToken("password", Config.AUTH_CODE, "");
+        Call<TokenRespEntity> password=tokenApi.getToken("password", NetConfig.AUTH_CODE, "");
         try {
             retrofit2.Response<TokenRespEntity> execute=password.execute( );
             if(execute!=null&&execute.body()!=null){

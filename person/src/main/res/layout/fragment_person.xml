@@ -3,7 +3,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray"
     tools:context=".PersonFragment">
 
+    <LinearLayout
+        android:background="@drawable/bg_me_header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <ImageView
+            android:id="@+id/person_img"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_default_user"
+            android:layout_width="60dp"
+            android:layout_height="60dp">
+        </ImageView>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="登录/注册"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/Person_Order"
+            android:drawableTop="@drawable/icon_order_wait_pay"
+            android:text="待付款">
+        </TextView>
+
+        <TextView
+            style="@style/Person_Order"
+            android:drawableTop="@drawable/icon_order_wait_confirm"
+            android:text="待付款">
+        </TextView>
+
+        <TextView
+            style="@style/Person_Order"
+            android:drawableTop="@drawable/icon_order_completed"
+            android:text="待付款">
+        </TextView>
+
+        <View style="@style/Person_cross"></View>
+        <TextView
+            style="@style/Person_Order"
+            android:drawableTop="@drawable/icon_order"
+            android:text="待付款">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/Person_Item"
+            android:drawableLeft="@drawable/ic_live"
+            android:text="我要直播">
+        </TextView>
+        <TextView
+            style="@style/Person_Item"
+            android:drawableLeft="@drawable/icon_address"
+            android:text="收货管理">
+        </TextView>
+        <TextView
+            style="@style/Person_Item"
+            android:drawableLeft="@drawable/icon_share"
+            android:text="分享">
+        </TextView>
+        <TextView
+            style="@style/Person_Item"
+            android:drawableLeft="@drawable/icon_setting"
+            android:text="设置">
+        </TextView>
+    </LinearLayout>
 
 </LinearLayout>
