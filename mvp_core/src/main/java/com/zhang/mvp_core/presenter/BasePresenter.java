@@ -19,9 +19,7 @@ import io.reactivex.disposables.Disposable;
  * User: msi
  */
 public abstract class BasePresenter<R extends BaseRepository,V extends IView> implements IPresenter {
-    @Inject
     protected R repository;
-    @Inject
     protected V vView;
 
     public BasePresenter(R repository, V vView) {

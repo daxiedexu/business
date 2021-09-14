@@ -8,6 +8,4 @@ package com.zhang.mvp_core.view;
  */
 public interface IView {
     void showToast(String msg);
-    void showIcon();
-    void hideIcon();
 }

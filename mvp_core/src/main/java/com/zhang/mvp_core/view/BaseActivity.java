@@ -15,7 +15,7 @@ import javax.inject.Inject;
  * User: msi
  */
 public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivity implements IView,IActivity {
-    @Inject
+
     protected P pPresenter;
 
     @Override
