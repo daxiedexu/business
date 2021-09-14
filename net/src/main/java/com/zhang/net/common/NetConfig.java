@@ -9,7 +9,7 @@ package com.zhang.net.common;
  * Created by Android Studio.
  * User: 伊莎贝拉
  */
-public class Config {
+public class NetConfig {
     /**
      * OKhttp的超时时间
      */

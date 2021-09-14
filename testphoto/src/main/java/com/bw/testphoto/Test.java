@@ -14,6 +14,7 @@ import android.widget.ImageView;
  * User: 伊莎贝拉
  */
 public interface Test {
-    void cs(String uri, Context context, ImageView view);
+    void set(String uri, Context context, ImageView view);
+    void setCircular(String uri, Context context, ImageView view);
 
 }

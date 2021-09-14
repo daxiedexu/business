@@ -15,9 +15,17 @@ import com.bw.testphoto.Test;
  * User: 伊莎贝拉
  */
 public class MyGlide implements Test {
+
+
     @Override
-    public void cs(String uri, Context context, ImageView view) {
-        Glide.with(context).load(uri).into(view);
+    public void set(String uri, Context context, ImageView view) {
+        Glide.with(context).load(uri).error(R.drawable.b).placeholder(R.drawable.a).into(view);
+
     }
 
+    @Override
+    public void setCircular(String uri, Context context, ImageView view) {
+        Glide.with(context).load(uri).error(R.drawable.b).placeholder(R.drawable.a).into(view);
+
+    }
 }

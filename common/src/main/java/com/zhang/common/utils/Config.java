@@ -9,11 +9,13 @@ package com.zhang.common.utils;
  * Created by Android Studio.
  * User: 伊莎贝拉
  */
-public class Config {
+public class Config{
 
     public final static String MODULE_HOME="/model/home";
     public final static String MODULE_KINDS="/model/kinds";
     public final static String MODULE_MESSAGE="/model/message";
     public final static String MODULE_PERSON="/model/person";
+
+    public final static Integer INTENT_PHOTO=100;
 
 }

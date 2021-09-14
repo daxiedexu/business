@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> 9322589d746546bb3f807381b0d26da9af0506c8
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".KindsFragment">
 
-<<<<<<< HEAD
-
-
 </LinearLayout>
-=======
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="分类页面正在开发中..." />
-</RelativeLayout>
->>>>>>> 9322589d746546bb3f807381b0d26da9af0506c8
+
