@@ -1,5 +1,7 @@
-plugins {
-    id 'calces.modules'
+if(isModule.toBoolean()){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
 }
 
 android {
@@ -7,6 +9,9 @@ android {
     buildToolsVersion '30.0.3'
 
     defaultConfig {
+        if(isModule.toBoolean()){
+            applicationId "com.zhang.message"
+        }
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1

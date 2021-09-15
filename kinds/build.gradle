@@ -1,12 +1,16 @@
-plugins {
-    id 'calces.modules'
+if(isModule.toBoolean()){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
 }
-
 android {
     compileSdkVersion 30
     buildToolsVersion '30.0.3'
 
     defaultConfig {
+        if(isModule.toBoolean()){
+            applicationId "com.zhang.kinds"
+        }
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1

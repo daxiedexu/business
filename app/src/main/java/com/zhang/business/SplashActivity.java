@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.zhang.common.utils.Config;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -24,8 +27,7 @@ public class SplashActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus){
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-            startActivity(intent);
+            ARouter.getInstance().build(Config.MODULE_MAIN).navigation();
         }else {
             finish();
         }

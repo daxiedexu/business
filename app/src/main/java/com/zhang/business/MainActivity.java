@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.zhang.business.adapter.FragmentAdapter;
+import com.zhang.common.utils.Config;
 import com.zhang.common.utils.page.NoScrollViewPager;
 import com.zhang.common.utils.page.StatusBarColorUtils;
 import com.zhang.home.HomeFragment;
@@ -20,6 +22,7 @@ import com.zhang.shopcar.ShopCarFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+@Route(path = Config.MODULE_MAIN)
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener{
     private NoScrollViewPager actMainNoScrollViewPager;
     private BottomNavigationBar actMainBottom;

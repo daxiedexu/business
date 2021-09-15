@@ -12,61 +12,6 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-//组件化自定编译清单文件
-plugins {
-    id "calces.appconfig" version "3.3.0-alpha01"
-}
-//自动组件化关闭
-appConfig {
-    debugEnable true
-    apps {
-        app {
-            name ":app"
-            applicationId "com.zhang.business"
-            applicationName ".App"
-            mainActivity ".SplashActivity"
-            modules ':shopcar',':home',':kinds',':message',':person'
-        }
-    }
-
-    modules {
-        shopcar {
-            name ":shopcar"
-            applicationId "com.zhang.shopcar"
-            applicationName ".App"
-            mainActivity ".ShopCarActivity"
-            isRunAlone false
-        }
-        home {
-            name ":home"
-            applicationId "com.zhang.home"
-            applicationName ".App"
-            mainActivity ".HomeActivity"
-            isRunAlone false
-        }
-        kinds {
-            name ":kinds"
-            applicationId "com.zhang.kinds"
-            applicationName ".App"
-            mainActivity ".MainActivity"
-            isRunAlone false
-        }
-        message {
-            name ":message"
-            applicationId "com.zhang.message"
-            applicationName ".App"
-            mainActivity ".MainActivity"
-            isRunAlone false
-        }
-        person {
-            name ":person"
-            applicationId "com.zhang.person"
-            applicationName ".App"
-            mainActivity ".MainActivity"
-            isRunAlone false
-        }
-    }
-}
 apply from : "gradles/Base.gradle"
 allprojects {
     repositories {
