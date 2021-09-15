@@ -90,10 +90,8 @@ public class RetrofitFactory {
                         return proceed;
                     }
                     mToken=token;
-
                     return resetRequest(request,localToken,chain);
                 }
-
                 return proceed;
             }
         };

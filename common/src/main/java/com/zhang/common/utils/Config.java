@@ -16,6 +16,7 @@ public class Config{
     public final static String MODULE_MESSAGE="/model/message";
     public final static String MODULE_PERSON="/model/person";
 
+
     public final static Integer INTENT_PHOTO=100;
 
 }
