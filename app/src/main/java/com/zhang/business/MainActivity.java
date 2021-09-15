@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         setContentView(R.layout.activity_main);
         initView();
         initBottom();
-        String channel = ChannelUtil.getChannel(MainActivity.this);
-        Toast.makeText(this, channel, Toast.LENGTH_SHORT).show();
     }
 
     private void initView() {
