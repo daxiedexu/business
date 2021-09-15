@@ -1,8 +1,10 @@
 package com.zhang.kinds.contrant;
 
 import com.zhang.kinds.net.entitiy.KindsEntitiy;
+import com.zhang.mvp_core.model.BaseRepository;
 import com.zhang.mvp_core.model.IModel;
 import com.zhang.mvp_core.view.IView;
+import com.zhang.net.Bean.BaseRespEntity;
 
 import io.reactivex.Observable;
 
@@ -13,11 +15,14 @@ import io.reactivex.Observable;
  * User: msi
  */
 public interface KindsContrant {
-    interface kindsModel extends IModel{
-        Observable<KindsEntitiy> getModel();
+    interface KindsModel extends IModel{
+        Observable<KindsEntitiy> getKinds();
     }
-    interface kindsView extends IView {
+    interface KindsView extends IView {
         void kindsSuccess(KindsEntitiy kindsEntitiy);
         void kindsFailds(Throwable throwable);
+    }
+    abstract class kindesRepository extends BaseRepository<KindsModel>{
+        public abstract Observable<KindsEntitiy> reqKinds();
     }
 }
