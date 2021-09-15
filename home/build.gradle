@@ -1,5 +1,7 @@
-plugins {
-    id 'calces.modules'
+if(isModule.toBoolean()){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
 }
 
 android {
@@ -7,6 +9,9 @@ android {
     buildToolsVersion '30.0.3'
 
     defaultConfig {
+        if(isModule.toBoolean()){
+            applicationId "com.zhang.home"
+        }
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
@@ -24,6 +29,16 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets{
+        main{
+            if(isModule.toBoolean()){
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }else{
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            }
+        }
     }
 }
 

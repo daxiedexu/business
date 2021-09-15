@@ -1,5 +1,5 @@
 plugins {
-    id 'calces.modules'
+    id 'com.android.application'
 }
 def libs = rootProject.ext.dependencies
 android {
@@ -17,6 +17,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
+                includeCompileClasspath false
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }

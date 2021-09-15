@@ -21,13 +21,13 @@ import org.jetbrains.annotations.NotNull;
  * User: 张海旭
  */
 public abstract class BaseFragment extends Fragment implements IFragment {
-    private View baseView;
+    private View baseView = null;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @org.jetbrains.annotations.NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        baseView = inflater.inflate(bandLayout(),container,false);
+        baseView = inflater.inflate(bindLayout(),container,false);
         return baseView;
     }
 

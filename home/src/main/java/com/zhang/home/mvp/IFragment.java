@@ -16,7 +16,7 @@ import androidx.annotation.LayoutRes;
  */
 public interface IFragment {
     @LayoutRes
-    int bandLayout();
+    int bindLayout();
     void initView();
     void initData();
     public <T extends View> T findViewById(@IdRes int id);

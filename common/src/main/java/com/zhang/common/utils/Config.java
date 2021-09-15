@@ -11,11 +11,11 @@ package com.zhang.common.utils;
  */
 public class Config{
 
-    public final static String MODULE_HOME="/model/home";
-    public final static String MODULE_KINDS="/model/kinds";
-    public final static String MODULE_MESSAGE="/model/message";
-    public final static String MODULE_PERSON="/model/person";
-
+    public final static String MODULE_MAIN="/main/main";//启动页跳转主页面
+    public final static String MODULE_HOME="/home/home";
+    public final static String MODULE_KINDS="/kinds/kinds";
+    public final static String MODULE_MESSAGE="/message/message";
+    public final static String MODULE_PERSON="/person/person";
 
     public final static Integer INTENT_PHOTO=100;
 

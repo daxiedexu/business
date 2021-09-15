@@ -11,7 +11,7 @@ package com.zhang.person;
  */
 public class Person_Config {
 
-    public final static String ORDER="/model/order";
+    public final static String ORDER="/person/order";
     public final static String ORDER_KTY="order_key";
 
     /**

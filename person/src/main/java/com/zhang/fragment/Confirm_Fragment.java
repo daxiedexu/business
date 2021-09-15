@@ -1,6 +1,7 @@
 package com.zhang.fragment;
 
 import com.zhang.mvp_core.view.BaseFragment;
+import com.zhang.person.R;
 
 /**
  * @ClassName Confirm_Fragment
@@ -14,7 +15,7 @@ import com.zhang.mvp_core.view.BaseFragment;
 public class Confirm_Fragment extends BaseFragment {
     @Override
     protected int bindLayout() {
-        return 0;
+        return R.layout.confirm;
     }
 
     @Override

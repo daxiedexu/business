@@ -18,6 +18,6 @@ public class NetConfig {
     /**
      * 用于获取后台token的code
      */
-    public final static String AUTH_CODE="2414210b1871541c115f1011d01bd12e1711001121611271";
+    public final static String AUTH_CODE="311801481d311b1ac1cd17b1cb1a61731281511571a81e01";
 
 }

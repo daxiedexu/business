@@ -1,6 +1,7 @@
 package com.zhang.home;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,10 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
-import com.zhang.common.utils.page.TextSwitcherAnimation;
+import com.zhang.common.utils.page.StatusBarColorUtils;
 import com.zhang.home.adapter.NetAdapter;
 import com.zhang.home.entity.NetEntity;
 import com.zhang.home.mvp.BaseFragment;
+import com.zhang.home.width.TextSwitcherAnimation;
 import com.zhouwei.mzbanner.MZBannerView;
 import com.zhouwei.mzbanner.holder.MZHolderCreator;
 import com.zhouwei.mzbanner.holder.MZViewHolder;
@@ -35,7 +37,7 @@ public class HomeFragment extends BaseFragment {
     private RecyclerView fgHomeNet;
     List<Integer> imageList = new ArrayList<>(Arrays.asList(R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e));
     @Override
-    public int bandLayout() {
+    public int bindLayout() {
         return R.layout.fragment_home;
     }
 
@@ -129,6 +131,14 @@ public class HomeFragment extends BaseFragment {
             }
         });
         new TextSwitcherAnimation(list, fgHomeTextSwitcher).create();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        //更改状态栏颜色及字体
+        StatusBarColorUtils.setStatusBarColor(getActivity(),Color.TRANSPARENT);
+        StatusBarColorUtils.setAndroidNativeLightStatusBar(getActivity(),true);
     }
 
     @Override

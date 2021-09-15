@@ -1,5 +1,7 @@
-plugins {
-    id 'calces.modules'
+if(isModule.toBoolean()){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
 }
 
 android {
@@ -7,12 +9,22 @@ android {
     buildToolsVersion '30.0.3'
 
     defaultConfig {
+        if(isModule.toBoolean()){
+            applicationId "com.zhang.person"
+        }
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -24,6 +36,15 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets{
+        main{
+            if(isModule.toBoolean()){
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }else{
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            }
+        }
     }
 }
 
@@ -43,4 +64,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' //ARouter依赖
 }

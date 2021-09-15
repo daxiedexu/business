@@ -1,4 +1,4 @@
-package com.zhang.common.utils.page;
+package com.zhang.home.width;
 
 import android.content.Context;
 import android.os.Handler;
