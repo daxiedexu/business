@@ -1,5 +1,6 @@
 package com.zhang.net;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.zhang.net.Bean.TokenRespEntity;
@@ -61,7 +62,7 @@ public class RetrofitFactory {
     private OkHttpClient createOkHttpClient() {
         OkHttpClient build=new OkHttpClient.Builder( )
                 .addInterceptor(createInterceptor())
-                .addNetworkInterceptor(createNetworkInterceptor())
+                .addInterceptor(createNetworkInterceptor())
                 .readTimeout(NetConfig.TIMEOUT, TimeUnit.MINUTES)
                 .writeTimeout(NetConfig.TIMEOUT, TimeUnit.MINUTES)
                 .connectTimeout(NetConfig.TIMEOUT, TimeUnit.MINUTES)
@@ -78,20 +79,23 @@ public class RetrofitFactory {
                 Request request=chain.request( );
                 //获取本地Token
                 String localToken = mToken;
-                if(!localToken.isEmpty()){
+                if(!TextUtils.isEmpty(localToken)){
                     return resetRequest(request,localToken,chain);
                 }
 
                 Response proceed=chain.proceed(request);
 
                 if(proceed.code()==401){
+                    Log.i("123", "intercept: 401");
                     String token=requestToken();
-                    if(!token.isEmpty()){
+                    if(TextUtils.isEmpty(token)){
+                        Log.i("123", "intercept: 402");
                         return proceed;
                     }
                     mToken=token;
+                    Log.i("123", "intercept: 402"+mToken);
 
-                    return resetRequest(request,localToken,chain);
+                    return resetRequest(request,token,chain);
                 }
 
                 return proceed;

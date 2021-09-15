@@ -1,7 +1,7 @@
 package com.zhang.kinds.net.api;
 
 import com.zhang.kinds.net.entitiy.KindsEntitiy;
-
+import com.zhang.net.Bean.BaseRespEntity;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 
