@@ -12,6 +12,7 @@ package com.zhang.person;
 public class Person_Config {
 
     public final static String ORDER="/person/order";
+    public final static String LOGIN="/test/login";
     public final static String ORDER_KTY="order_key";
 
     /**
@@ -19,11 +20,11 @@ public class Person_Config {
      * 待支付
      * 待收货
      * 已完成
-     * 已取消
+     * 我的订单
      */
     public final static Integer ORDER_ALL=0;
     public final static Integer ORDER_WAIT_PAY=1;
     public final static Integer ORDER_WAIT_CONFIRM=2;
     public final static Integer ORDER_COMPLETED=3;
-    public final static Integer ORDER_CANCELED=4;
+    public final static Integer ORDER_MY=4;
 }

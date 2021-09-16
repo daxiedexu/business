@@ -13,6 +13,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.zhang.business.adapter.FragmentAdapter;
 import com.zhang.common.utils.Config;
 import com.zhang.common.utils.back.ChannelUtil;
+import com.zhang.common.utils.back.SharedManger;
 import com.zhang.common.utils.page.NoScrollViewPager;
 import com.zhang.common.utils.page.StatusBarColorUtils;
 import com.zhang.home.HomeFragment;
@@ -50,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         fragments.add(new PersonFragment());
         FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(),FragmentAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,fragments);
         actMainNoScrollViewPager.setAdapter(fragmentAdapter);
+
+
     }
 
     private void initBottom() {

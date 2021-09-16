@@ -33,8 +33,13 @@
             <item name="android:layout_height">wrap_content</item>
             <item name="android:drawableRight">@drawable/icon_arrow</item>
         </style>
-    
-        <style name="Person_cross">
+
+        <style name="Horizontal_divider">
+            <item name="android:background">@color/gray2</item>
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:layout_height">5dp</item>
+        </style>
+        <style name="Vertical_divider">
             <item name="android:background">@color/gray2</item>
             <item name="android:layout_width">5px</item>
             <item name="android:layout_height">match_parent</item>
