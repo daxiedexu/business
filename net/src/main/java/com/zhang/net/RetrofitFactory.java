@@ -94,10 +94,8 @@ public class RetrofitFactory {
                     }
                     mToken=token;
                     Log.i("123", "intercept: 402"+mToken);
-
                     return resetRequest(request,token,chain);
                 }
-
                 return proceed;
             }
         };

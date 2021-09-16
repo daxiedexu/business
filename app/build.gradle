@@ -55,6 +55,6 @@ dependencies {
     //导入依赖
     implementation libs.bottom
 
-    implementation 'com.alibaba:arouter-compiler:1.5.1'
+
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' //ARouter依赖
 }
