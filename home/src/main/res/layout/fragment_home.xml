@@ -11,7 +11,6 @@
         android:background="#ff8800"
         android:layout_width="match_parent"
         android:layout_height="48dp">
-
         <ImageView
             android:layout_centerVertical="true"
             android:layout_marginLeft="32dp"
@@ -19,18 +18,16 @@
             android:layout_height="14dp"
             android:src="@drawable/search">
         </ImageView>
-
         <TextView
             android:id="@+id/fg_home_search"
             android:text="搜索商品/品类"
             android:layout_marginLeft="54dp"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textColor="#FFFFFF"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,13 +38,14 @@
             android:drawableTop="@drawable/look"
             android:text="扫一扫"
             android:textColor="#FFFFFF"
-            android:textSize="12dp"></TextView>
+            android:textSize="12sp">
+        </TextView>
     </RelativeLayout>
     <com.youth.banner.Banner
         android:id="@+id/fg_home_banner"
         android:layout_below="@id/head"
         android:layout_width="match_parent"
-        android:layout_height="190dp">
+        android:layout_height="185dp">
     </com.youth.banner.Banner>
     <RelativeLayout
         android:id="@+id/notice"

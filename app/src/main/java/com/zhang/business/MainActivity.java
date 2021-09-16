@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         fragments.add(new MessageFragment());
         fragments.add(new PersonFragment());
         FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(),FragmentAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,fragments);
+        actMainNoScrollViewPager.setScroll(false);
         actMainNoScrollViewPager.setAdapter(fragmentAdapter);
     }
 
@@ -62,14 +63,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 .addItem(new BottomNavigationItem(R.drawable.message,"消息"))
                 .addItem(new BottomNavigationItem(R.drawable.person,"我的"))
                 .initialise();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //更改状态栏颜色及字体
-        StatusBarColorUtils.setStatusBarColor(MainActivity.this, Color.WHITE);
-        StatusBarColorUtils.setAndroidNativeLightStatusBar(MainActivity.this,true);
     }
 
     @Override

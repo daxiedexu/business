@@ -25,4 +25,5 @@ public interface KindsContrant {
     abstract class kindesRepository extends BaseRepository<KindsModel>{
         public abstract Observable<KindsEntitiy> reqKinds();
     }
+
 }
