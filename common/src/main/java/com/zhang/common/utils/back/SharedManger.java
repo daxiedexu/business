@@ -13,8 +13,8 @@ import android.content.SharedPreferences;
  * User: 张海旭
  */
 public class SharedManger {
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
+    private static SharedPreferences sharedPreferences;
+    private static SharedPreferences.Editor editor;
 
    //初始化Sp、editor
     public SharedManger(Context context,String spName) {
@@ -49,7 +49,7 @@ public class SharedManger {
     }
 
     //获得当前sq对象
-    public SharedPreferences getSharedPreferences() {
+    public static SharedPreferences getSharedPreferences() {
         return sharedPreferences;
     }
 }

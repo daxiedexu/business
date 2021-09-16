@@ -6,6 +6,7 @@
         android:allowBackup="true">
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".OrderStatus"></activity>
+        <activity android:name=".Person_Login"></activity>
     </application>
 
 </manifest>
