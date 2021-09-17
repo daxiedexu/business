@@ -19,11 +19,6 @@ public class All_Fragment extends BaseFragment {
     }
 
     @Override
-    protected void initInject() {
-
-    }
-
-    @Override
     protected void initData() {
 
     }

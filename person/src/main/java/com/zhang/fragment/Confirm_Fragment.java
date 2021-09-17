@@ -18,10 +18,6 @@ public class Confirm_Fragment extends BaseFragment {
         return R.layout.confirm;
     }
 
-    @Override
-    protected void initInject() {
-
-    }
 
     @Override
     protected void initData() {
