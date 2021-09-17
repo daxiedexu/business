@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".OrderStatus"></activity>
+        <activity android:name=".Person_Login">
+        </activity>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.zhang.common.utils.page;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 
 import androidx.viewpager.widget.ViewPager;
@@ -39,10 +40,18 @@ public class NoScrollViewPager extends ViewPager {
         if (isScroll){
             return super.onTouchEvent(ev);
         }else {
-            return true;
+            return false;
         }
     }
 
+    @Override
+    public void scrollTo(int x, int y) {
+        if (x<300){
+            super.scrollTo(0, 0);
+        }else {
+            super.scrollTo(x, y);
+        }
+    }
 
     @Override
     public void setCurrentItem(int item) {

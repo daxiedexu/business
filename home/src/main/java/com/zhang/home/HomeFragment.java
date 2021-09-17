@@ -3,6 +3,7 @@ package com.zhang.home;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextSwitcher;
@@ -136,9 +137,9 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onStart() {
         super.onStart();
-        //更改状态栏颜色及字体
-        StatusBarColorUtils.setStatusBarColor(getActivity(),Color.TRANSPARENT);
-        StatusBarColorUtils.setAndroidNativeLightStatusBar(getActivity(),true);
+        int parseColor = Color.parseColor("#FF8800");
+        StatusBarColorUtils.setStatusBarColor(getActivity(),parseColor);
+        StatusBarColorUtils.setAndroidNativeLightStatusBar(getActivity(),false);
     }
 
     @Override

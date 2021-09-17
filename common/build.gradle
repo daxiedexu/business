@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id 'org.greenrobot.greendao' //add
 }
 
 android {
@@ -28,6 +29,14 @@ android {
     }
 }
 
+greendao {
+    // 指定数据库schema版本号，迁移等操作会用到
+    schemaVersion 1
+    // 设置生成数据库文件的目录，默认是在build中，可以将生成的文件放到我们的java目录中
+    targetGenDir 'src/main/java'
+    // 设置生成的数据库相关文件的包名，默认为entity所在的包名
+    daoPackage 'com.zhang.common.utils.mydao'
+}
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -37,4 +46,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     api ('com.alibaba:arouter-api:1.4.1') //ARouter依赖
+    implementation 'org.greenrobot:greendao:3.3.0' // Greendao
 }

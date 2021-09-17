@@ -37,25 +37,29 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/person_pay"
             style="@style/Person_Order"
             android:drawableTop="@drawable/icon_order_wait_pay"
             android:text="@string/person_obligation">
         </TextView>
 
         <TextView
+            android:id="@+id/person_wait"
             style="@style/Person_Order"
             android:drawableTop="@drawable/icon_order_wait_confirm"
             android:text="@string/person_receiving">
         </TextView>
 
         <TextView
+            android:id="@+id/person_completed"
             style="@style/Person_Order"
             android:drawableTop="@drawable/icon_order_completed"
             android:text="@string/person_completed">
         </TextView>
 
-        <View style="@style/Person_cross"></View>
+        <View style="@style/Vertical_divider"></View>
         <TextView
+            android:id="@+id/person_order"
             style="@style/Person_Order"
             android:drawableTop="@drawable/icon_order"
             android:text="@string/person_my_order">
