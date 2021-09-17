@@ -18,10 +18,6 @@ public class Canceled_Fragment extends BaseFragment {
         return R.layout.canceled;
     }
 
-    @Override
-    protected void initInject() {
-
-    }
 
     @Override
     protected void initData() {

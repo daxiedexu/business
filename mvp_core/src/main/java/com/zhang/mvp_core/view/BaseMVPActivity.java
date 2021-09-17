@@ -8,7 +8,6 @@ import com.bw.di.BaseApplication;
 import com.bw.di.component.ActivityComponent;
 import com.bw.di.component.DaggerActivityComponent;
 import com.bw.di.module.ActivityModule;
-import com.zhang.mvp_core.presenter.IPresenter;
 
 /**
  * @ClassName BaseMVPActivity
@@ -16,16 +15,17 @@ import com.zhang.mvp_core.presenter.IPresenter;
  * @Date 2021/9/16 19:07
  * User: msi
  */
-public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity {
+public abstract class BaseMVPActivity extends BaseActivity {
 
     protected ActivityComponent activityComponent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         activityComponent = DaggerActivityComponent.builder().appComponent(((BaseApplication) getApplication()).appComponent)
                 .activityModule(new ActivityModule(this))
                 .build();
         injectCompoent();
+        super.onCreate(savedInstanceState);
+
     }
 
     protected abstract void injectCompoent();

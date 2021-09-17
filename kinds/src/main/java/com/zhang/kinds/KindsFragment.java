@@ -3,6 +3,7 @@ package com.zhang.kinds;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -21,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class KindsFragment  {
+public class KindsFragment  extends Fragment {
 
 
 //    private RecyclerView kindsRvGroup;

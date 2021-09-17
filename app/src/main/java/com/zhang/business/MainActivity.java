@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         //初始化底部导航栏
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new HomeFragment());
-//        fragments.add(new KindsFragment());
+        fragments.add(new KindsFragment());
         fragments.add(new ShopCarFragment());
         fragments.add(new MessageFragment());
         fragments.add(new PersonFragment());

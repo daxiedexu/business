@@ -12,7 +12,7 @@ import javax.inject.Inject;
  * @Date 2021/9/3 9:59
  * User: msi
  */
-public abstract class BasePresenter<R extends BaseRepository,V extends IView> implements IPresenter {
+public abstract class BasePresenter<R extends BaseRepository,V extends IView> {
     @Inject
     protected R rRepository;
     @Inject

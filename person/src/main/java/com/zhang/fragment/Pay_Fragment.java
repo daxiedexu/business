@@ -18,10 +18,6 @@ public class Pay_Fragment extends BaseFragment {
         return R.layout.pay;
     }
 
-    @Override
-    protected void initInject() {
-
-    }
 
     @Override
     protected void initData() {

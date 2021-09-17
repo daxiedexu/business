@@ -6,7 +6,6 @@ import com.bw.di.BaseApplication;
 import com.bw.di.component.DaggerFragmentComponent;
 import com.bw.di.component.FragmentComponent;
 import com.bw.di.module.FragmentModule;
-import com.zhang.mvp_core.presenter.IPresenter;
 
 /**
  * @ClassName BaseMVPFragment
@@ -14,15 +13,16 @@ import com.zhang.mvp_core.presenter.IPresenter;
  * @Date 2021/9/16 19:18
  * User: msi
  */
-public abstract class BaseMVPFragment<P extends IPresenter> extends BaseFragment{
+public abstract class BaseMVPFragment extends BaseFragment{
     protected FragmentComponent fragmentComponent;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        fragmentComponent = DaggerFragmentComponent.builder().appComponent(((BaseApplication) getContext()).appComponent)
+        fragmentComponent = DaggerFragmentComponent.builder().appComponent(((BaseApplication) getContext().getApplicationContext()).appComponent)
                 .fragmentModule(new FragmentModule(this))
                 .build();
         injectCompoent();
+        super.onActivityCreated(savedInstanceState);
+
     }
 
     protected abstract void injectCompoent();

@@ -14,10 +14,7 @@ import com.zhang.mvp_core.view.BaseActivity;
  */
 @Route(path=Person_Config.LOGIN)
 public class Person_Login extends BaseActivity {
-    @Override
-    protected void initInject() {
 
-    }
 
     @Override
     protected void initData() {
