@@ -18,10 +18,7 @@ public class All_Fragment extends BaseFragment {
         return R.layout.all;
     }
 
-    @Override
-    protected void initInject() {
 
-    }
 
     @Override
     protected void initData() {

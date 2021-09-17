@@ -18,10 +18,7 @@ public class Completed_Fragment extends BaseFragment {
         return R.layout.completed;
     }
 
-    @Override
-    protected void initInject() {
 
-    }
 
     @Override
     protected void initData() {

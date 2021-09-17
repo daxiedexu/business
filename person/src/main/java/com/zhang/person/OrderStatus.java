@@ -39,10 +39,6 @@ public class OrderStatus extends BaseActivity {
     @Autowired(name=Person_Config.ORDER_KTY)
     int index;
 
-    @Override
-    protected void initInject() {
-
-    }
 
     @Override
     protected void initData() {

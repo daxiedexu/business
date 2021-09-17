@@ -17,7 +17,7 @@ import com.zhang.kinds.presenter.KindsPresenterImpls;
 import com.zhang.kinds.repository.KindsRepositoryImpl;
 import com.zhang.mvp_core.view.BaseFragment;
 
-import org.jetbrains.annotations.NotNull;
+
 
 import java.util.List;
 
