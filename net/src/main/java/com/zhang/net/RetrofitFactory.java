@@ -61,15 +61,18 @@ public class RetrofitFactory {
      */
     private OkHttpClient createOkHttpClient() {
         OkHttpClient build=new OkHttpClient.Builder( )
-                .addInterceptor(createInterceptor())
-                .addInterceptor(createNetworkInterceptor())
+                .addInterceptor(createInterceptor())//日志
+                .addInterceptor(createNetworkInterceptor())//token
+                .addInterceptor(new Retry(3))//重试
                 .readTimeout(NetConfig.TIMEOUT, TimeUnit.MINUTES)
                 .writeTimeout(NetConfig.TIMEOUT, TimeUnit.MINUTES)
                 .connectTimeout(NetConfig.TIMEOUT, TimeUnit.MINUTES)
+                .retryOnConnectionFailure(true)//默认重试一次，若需要重试N次，则要实现拦截器。
                 .build( );
 
         return build;
     }
+
 
     /**
      * 判断token
@@ -91,7 +94,6 @@ public class RetrofitFactory {
                 if(proceed.code()==401){
                     String token=requestToken();
                     if(TextUtils.isEmpty(token)){
-
                         return proceed;
                     }
                     mToken=token;
@@ -139,6 +141,31 @@ public class RetrofitFactory {
         HttpLoggingInterceptor httpLoggingInterceptor=new HttpLoggingInterceptor( )
                 .setLevel(HttpLoggingInterceptor.Level.BODY);
         return httpLoggingInterceptor;
+    }
+
+
+    /**
+     * 自定义的，重试N次的拦截器
+     * 通过：addInterceptor 设置
+     */
+    public  class Retry implements Interceptor {
+        public int maxRetry;//最大重试次数
+        private int retryNum = 0;//假如设置为3次重试的话，则最大可能请求4次（默认1次+3次重试）
+        public Retry(int maxRetry) {
+            this.maxRetry = maxRetry;
+        }
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            Request request = chain.request();
+            Response response = chain.proceed(request);
+            Log.i("Retry","num:"+retryNum);
+            while (!response.isSuccessful() && retryNum < maxRetry) {
+                retryNum++;
+                Log.i("Retry","num:"+retryNum);
+                response = chain.proceed(request);
+            }
+            return response;
+        }
     }
 
 
