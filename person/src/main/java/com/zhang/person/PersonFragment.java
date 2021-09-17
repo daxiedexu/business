@@ -37,10 +37,6 @@ public class PersonFragment extends BaseFragment {
         });
     }
 
-    @Override
-    public void initInject() {
-
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {

@@ -5,9 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".KindsFragment">
-
     <RelativeLayout
-        android:id="@+id/head"
         android:orientation="horizontal"
         android:background="#ff8800"
         android:layout_width="match_parent"
@@ -26,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
+            android:background="#F6F6F6"
             android:id="@+id/kinds_rv_group"
             android:layout_weight="1"
             android:layout_width="0dp"

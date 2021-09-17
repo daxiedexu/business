@@ -6,6 +6,8 @@ import com.zhang.common.utils.back.MVPModelException;
 
 import java.lang.reflect.Field;
 
+import javax.inject.Inject;
+
 /**
  * @ClassName BaseRepository
  * @Author 孔晨亮
@@ -13,5 +15,6 @@ import java.lang.reflect.Field;
  * User: msi
  */
 public abstract class BaseRepository<M extends IModel> {
-
+    @Inject
+    protected M model;
 }

@@ -1,6 +1,5 @@
 package com.zhang.kinds.net.di;
 
-import com.zhang.kinds.contrant.KindsContrant;
 import com.zhang.kinds.model.KindsModel;
 
 import dagger.Module;

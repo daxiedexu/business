@@ -14,9 +14,8 @@ import javax.inject.Inject;
  * @Date 2021/9/3 10:01
  * User: msi
  */
-public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
-    protected P pPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,11 +23,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
         setContentView(bindLayout());
         initView();
         initData();
-        //注入Dagger2
-        initInject();
     }
-
-    protected abstract void initInject();
 
     protected abstract void initData();
 
@@ -36,12 +31,5 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
 
     protected abstract int bindLayout();
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (pPresenter!=null){
-            pPresenter.destory();
-            pPresenter=null;
-        }
-    }
+
 }

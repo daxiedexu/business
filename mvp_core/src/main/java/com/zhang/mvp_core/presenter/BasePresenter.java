@@ -1,14 +1,9 @@
 package com.zhang.mvp_core.presenter;
 
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.OnLifecycleEvent;
 import com.zhang.mvp_core.model.BaseRepository;
 import com.zhang.mvp_core.view.IView;
+import javax.inject.Inject;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import io.reactivex.disposables.Disposable;
 
 
 /**
@@ -18,23 +13,11 @@ import io.reactivex.disposables.Disposable;
  * User: msi
  */
 public abstract class BasePresenter<R extends BaseRepository,V extends IView> implements IPresenter {
+    @Inject
     protected R rRepository;
+    @Inject
     protected V vView;
 
-    public BasePresenter(R repository, V vView) {
-        this.rRepository = repository;
-        this.vView = vView;
-    }
-
-    @Override
-    public void destory() {
-        if (rRepository!=null){
-            rRepository=null;
-        }
-        if (vView!=null){
-            vView=null;
-        }
-    }
 
 
 }
