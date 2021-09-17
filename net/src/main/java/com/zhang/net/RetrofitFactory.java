@@ -47,7 +47,7 @@ public class RetrofitFactory {
 
     private Retrofit createRetrofit() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://39.98.153.96:8082/")
+                .baseUrl(BuildConfig.BASEURL)
                 .client(createOkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -71,6 +71,9 @@ public class RetrofitFactory {
         return build;
     }
 
+    /**
+     * 判断token
+     */
     private String mToken="";
     private Interceptor createNetworkInterceptor() {
         Interceptor interceptor = new Interceptor(){
@@ -86,14 +89,12 @@ public class RetrofitFactory {
                 Response proceed=chain.proceed(request);
 
                 if(proceed.code()==401){
-                    Log.i("123", "intercept: 401");
                     String token=requestToken();
                     if(TextUtils.isEmpty(token)){
-                        Log.i("123", "intercept: 402");
+
                         return proceed;
                     }
                     mToken=token;
-                    Log.i("123", "intercept: 402"+mToken);
                     return resetRequest(request,token,chain);
                 }
                 return proceed;
@@ -108,11 +109,8 @@ public class RetrofitFactory {
         try {
             retrofit2.Response<TokenRespEntity> execute=password.execute( );
             if(execute!=null&&execute.body()!=null){
-                Log.i("123", "requestToken: "+execute.body().getAccess_token());
                 return execute.body().getAccess_token();
             }
-
-
         } catch (IOException e) {
             e.printStackTrace( );
 
@@ -133,7 +131,7 @@ public class RetrofitFactory {
 
 
     /**
-     * 网络拦截器
+     * 日志拦截器
      * TokenInterceptor
      * @return
      */

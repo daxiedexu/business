@@ -10,6 +10,9 @@ package com.zhang.net.common;
  * User: 伊莎贝拉
  */
 public class NetConfig {
+
+    public final static String URL="http://39.98.153.96:8082/";
+
     /**
      * OKhttp的超时时间
      */

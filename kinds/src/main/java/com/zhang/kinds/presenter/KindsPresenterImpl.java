@@ -1,18 +1,5 @@
 package com.zhang.kinds.presenter;
 
-import android.util.Log;
-
-import com.zhang.kinds.contrant.KindsContrant;
-import com.zhang.kinds.net.entitiy.KindsEntitiy;
-import com.zhang.kinds.repository.KindsRepositoryImpl;
-import com.zhang.mvp_core.presenter.BasePresenter;
-import com.zhang.net.Bean.BaseRespEntity;
-
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-
 /**
  * @ClassName KindsPresenter
  * @Author 孔晨亮

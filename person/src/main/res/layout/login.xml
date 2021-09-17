@@ -6,7 +6,8 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-
+        android:focusableInTouchMode="true"
+        android:focusable="true"
         android:layout_marginTop="@dimen/dp20"
         android:orientation="vertical"
         android:background="@drawable/edit"
@@ -14,6 +15,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/login_user_name"
             android:background="@null"
             android:drawableLeft="@drawable/icon_user_name"
             android:hint="请输入账号"
@@ -21,6 +23,8 @@
             android:layout_height="wrap_content"></EditText>
         <View style="@style/Horizontal_divider"></View>
         <EditText
+            android:inputType="textPassword"
+            android:id="@+id/login_user_pwd"
             android:background="@null"
             android:drawableLeft="@drawable/icon_pwd"
             android:hint="请输入密码"
@@ -28,8 +32,15 @@
             android:layout_height="wrap_content"></EditText>
     </LinearLayout>
 
+    <TextView
+        android:layout_marginVertical="@dimen/dp10"
+        android:id="@+id/login_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
     <Button
-        android:enabled="true"
+        android:id="@+id/login_btn"
+        android:enabled="false"
         android:text="登录"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></Button>

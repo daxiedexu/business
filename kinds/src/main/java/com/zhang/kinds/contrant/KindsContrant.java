@@ -1,15 +1,5 @@
 package com.zhang.kinds.contrant;
 
-import com.zhang.kinds.net.entitiy.KindsEntitiy;
-import com.zhang.kinds.repository.KindsRepositoryImpl;
-import com.zhang.mvp_core.model.BaseRepository;
-import com.zhang.mvp_core.model.IModel;
-import com.zhang.mvp_core.presenter.BasePresenter;
-import com.zhang.mvp_core.view.IView;
-import com.zhang.net.Bean.BaseRespEntity;
-
-import io.reactivex.Observable;
-
 /**
  * @ClassName KindsContrant
  * @Author 孔晨亮
