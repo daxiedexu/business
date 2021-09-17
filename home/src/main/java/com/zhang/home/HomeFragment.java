@@ -14,9 +14,11 @@ import android.widget.ViewSwitcher;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
+import com.zhang.common.utils.Config;
 import com.zhang.common.utils.page.StatusBarColorUtils;
 import com.zhang.home.adapter.NetAdapter;
 import com.zhang.home.entity.NetEntity;
@@ -36,6 +38,10 @@ public class HomeFragment extends BaseFragment {
     private Banner fgHomeBanner;
     private MZBannerView fgHomeMzBanner;
     private RecyclerView fgHomeNet;
+    private TextView fgHomeSearch;
+
+
+
     List<Integer> imageList = new ArrayList<>(Arrays.asList(R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e));
     @Override
     public int bindLayout() {
@@ -48,9 +54,17 @@ public class HomeFragment extends BaseFragment {
         fgHomeTextSwitcher = (TextSwitcher) findViewById(R.id.fg_home_textSwitcher);
         fgHomeMzBanner = (MZBannerView) findViewById(R.id.fg_home_mzBanner);
         fgHomeNet = (RecyclerView) findViewById(R.id.fg_home_net);
+        fgHomeSearch = (TextView) findViewById(R.id.fg_home_search);
         initBanner();
         initMzBanner();
         initNetRecycler();
+
+        fgHomeSearch.setOnClickListener(new View.OnClickListener( ) {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(Config.MODULE_SEARCH).greenChannel().navigation();
+            }
+        });
     }
 
     private void initNetRecycler() {
