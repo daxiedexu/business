@@ -2,11 +2,8 @@ package com.zhang.business;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.alibaba.android.arouter.facade.Postcard;
-import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zhang.common.utils.Config;
 
@@ -29,27 +26,7 @@ public class SplashActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus){
-            ARouter.getInstance().build(Config.MODULE_MAIN).navigation(this, new NavigationCallback( ) {
-                @Override
-                public void onFound(Postcard postcard) {
-
-                }
-
-                @Override
-                public void onLost(Postcard postcard) {
-
-                }
-
-                @Override
-                public void onArrival(Postcard postcard) {
-
-                }
-
-                @Override
-                public void onInterrupt(Postcard postcard) {
-
-                }
-            });
+            ARouter.getInstance().build(Config.MODULE_MAIN).navigation();
         }else {
             finish();
         }

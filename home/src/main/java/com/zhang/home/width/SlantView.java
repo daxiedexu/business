@@ -37,7 +37,7 @@ public class SlantView extends View {
 
     private void init() {
         textPaint = new Paint();
-        textPaint.setTextSize(36);
+        textPaint.setTextSize(24);
         textPaint.setColor(Color.BLACK);
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setStrokeWidth(10);
@@ -47,6 +47,7 @@ public class SlantView extends View {
     public void draw(Canvas canvas) {
         super.draw(canvas);
         canvas.rotate(30, this.getWidth() / 2f, this.getHeight() / 2f);
-        canvas.drawText("折扣",80,200,textPaint);
+        canvas.drawText("折扣",80,20,textPaint);
+        this.setY(100.f);
     }
 }

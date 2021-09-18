@@ -41,7 +41,7 @@ public class LogUtils {
                     Log.e(desc,message);
                     break;
                 default:
-                    Log.e(TAG,"请输入正确的日志输出等级!");
+                    new TestException("请输入正确的日志等级!");
                     break;
             }
         }
