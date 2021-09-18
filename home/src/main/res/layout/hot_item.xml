@@ -12,10 +12,10 @@
         android:layout_width="60dp"
         android:layout_height="60dp">
     </ImageView>
-    <com.zhang.common.utils.page.MoreMoneyView
+    <com.zhang.home.width.MoreMoneyView
         android:layout_width="60dp"
         android:layout_height="60dp">
-    </com.zhang.common.utils.page.MoreMoneyView>
+    </com.zhang.home.width.MoreMoneyView>
     <TextView
         android:id="@+id/hot_price"
         android:layout_below="@id/hot_image"

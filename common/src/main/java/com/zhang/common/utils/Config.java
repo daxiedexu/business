@@ -16,6 +16,7 @@ public class Config{
     public final static String MODULE_KINDS="/kinds/kinds";
     public final static String MODULE_MESSAGE="/message/message";
     public final static String MODULE_PERSON="/person/person";
+    public final static String MODULE_SEARCH="/search/search";
 
     public final static Integer INTENT_PHOTO=100;
 

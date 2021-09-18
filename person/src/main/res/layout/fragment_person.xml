@@ -22,6 +22,7 @@
         </ImageView>
 
         <TextView
+            android:id="@+id/person_login"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_gravity="center"
             android:textColor="@color/white"

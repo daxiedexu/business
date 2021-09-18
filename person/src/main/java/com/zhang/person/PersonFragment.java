@@ -24,8 +24,7 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
     private TextView personCompleted;
     private TextView personOrder;
     Intent intent;
-
-
+    private TextView personLogin;
     @Override
     public int bindLayout() {
         return R.layout.fragment_person;
@@ -38,6 +37,7 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
         personWait = (TextView) getActivity().findViewById(R.id.person_wait);
         personCompleted = (TextView) getActivity().findViewById(R.id.person_completed);
         personOrder = (TextView) getActivity().findViewById(R.id.person_order);
+        personLogin = (TextView) getActivity().findViewById(R.id.person_login);
     }
 
     @Override
@@ -47,6 +47,7 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
         personWait.setOnClickListener(this::onClick);
         personCompleted.setOnClickListener(this::onClick);
         personOrder.setOnClickListener(this::onClick);
+        personLogin.setOnClickListener(this::onClick);
     }
 
 
@@ -85,6 +86,8 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
             ARouter.getInstance().build(Person_Config.ORDER)
                     .withInt(Person_Config.ORDER_KTY,Person_Config.ORDER_MY)
                     .navigation(getContext(),new MyNavigationCallback());
+        }else if (v.getId()==R.id.person_login){
+            ARouter.getInstance().build(Person_Config.LOGIN).greenChannel().navigation();
         }
     }
 
