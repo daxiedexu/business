@@ -4,11 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.bw.di.BaseApplication;
-import com.bw.di.component.ActivityComponent;
-import com.bw.di.component.DaggerActivityComponent;
-import com.bw.di.module.ActivityModule;
-
 /**
  * @ClassName BaseMVPActivity
  * @Author 孔晨亮
