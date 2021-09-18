@@ -41,12 +41,7 @@ public class HomeFragment extends BaseFragment {
     private Banner fgHomeBanner;
     private MZBannerView fgHomeMzBanner;
     private RecyclerView fgHomeNet;
-
     private TextView fgHomeSearch;
-
-
-
-
     private RecyclerView fgHomeDiscount;
     private RecyclerView fgRecyclerGoods;
 
@@ -62,25 +57,19 @@ public class HomeFragment extends BaseFragment {
         fgHomeTextSwitcher = (TextSwitcher) findViewById(R.id.fg_home_textSwitcher);
         fgHomeMzBanner = (MZBannerView) findViewById(R.id.fg_home_mzBanner);
         fgHomeNet = (RecyclerView) findViewById(R.id.fg_home_net);
-
         fgHomeSearch = (TextView) findViewById(R.id.fg_home_search);
-
         fgHomeDiscount = (RecyclerView) findViewById(R.id.fg_home_discount);
         fgRecyclerGoods = (RecyclerView) findViewById(R.id.fg_recycler_goods);
-
         initBanner();
         initMzBanner();
         initDiscount();
         initNetRecycler();
-
-
         fgHomeSearch.setOnClickListener(new View.OnClickListener( ) {
             @Override
             public void onClick(View v) {
                 ARouter.getInstance().build(Config.MODULE_SEARCH).greenChannel().navigation();
             }
         });
-
         initGoodsRecycler();
     }
 
@@ -99,7 +88,6 @@ public class HomeFragment extends BaseFragment {
         DiscountAdapter discountAdapter = new DiscountAdapter(discountEntities);
         fgHomeDiscount.setAdapter(discountAdapter);
         fgHomeDiscount.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
-
     }
 
     private void initNetRecycler() {
