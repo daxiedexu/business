@@ -2,19 +2,15 @@ package com.zhang.kinds.view;
 
 import android.util.Log;
 
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
-import com.bw.di.component.DaggerFragmentComponent;
 import com.zhang.kinds.R;
 import com.zhang.kinds.adapter.KindsAdapter;
 import com.zhang.kinds.adapter.KindsAdapters;
 import com.zhang.kinds.contrant.KindsContrant;
-
 import com.zhang.kinds.net.di.component.DaggerKindsComponent;
 import com.zhang.kinds.net.di.module.KindsViewModule;
 import com.zhang.kinds.net.entitiy.KindsEntitiy;
