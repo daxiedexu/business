@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.zhang.home.width.MoreMoneyView;
 import com.zhang.home.R;
-import com.zhang.home.entity.DiscountEntity;
+import com.zhang.home.net.entity.DiscountEntity;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

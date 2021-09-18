@@ -1,4 +1,4 @@
-package com.zhang.home.entity;
+package com.zhang.home.net.entity;
 
 /**
  * @ClassName DiscountEntity
