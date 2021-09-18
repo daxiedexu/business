@@ -49,6 +49,7 @@ dependencies {
     implementation project(path: ':person')
     implementation project(path: ':message')
     implementation project(path: ':kinds')
+    implementation project(path: ':di')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

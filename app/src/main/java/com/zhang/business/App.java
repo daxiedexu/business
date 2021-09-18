@@ -5,6 +5,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bw.di.BaseApplication;
 import com.zhang.common.utils.back.ProgressManger;
 
 /**
@@ -16,7 +17,7 @@ import com.zhang.common.utils.back.ProgressManger;
  * Created by Android Studio.
  * User: 张海旭
  */
-public class App extends Application {
+public class App extends BaseApplication {
     private static final String TAG = "App";
     @Override
     public void onCreate() {

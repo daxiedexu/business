@@ -18,10 +18,6 @@ public class Pay_Fragment extends BaseFragment {
         return R.layout.pay;
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9a43a210875266a2f6b9c27cb2a1328cecf85aab
 
     @Override
     protected void initData() {

@@ -3,21 +3,16 @@ package com.zhang.business;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.zhang.business.adapter.FragmentAdapter;
 import com.zhang.common.utils.Config;
-import com.zhang.common.utils.back.ChannelUtil;
-import com.zhang.common.utils.back.SharedManger;
 import com.zhang.common.utils.page.NoScrollViewPager;
-import com.zhang.common.utils.page.StatusBarColorUtils;
 import com.zhang.home.HomeFragment;
-import com.zhang.kinds.KindsFragment;
+import com.zhang.kinds.view.KindsFragment;
 import com.zhang.message.MessageFragment;
 import com.zhang.person.PersonFragment;
 import com.zhang.shopcar.ShopCarFragment;

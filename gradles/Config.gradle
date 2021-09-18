@@ -16,8 +16,8 @@ ext{
     ]
 
     url=[
-            debug:"http://39.98.153.96:8080/",
-            release:"http://39.98.153.96:8080/",
-            testServerUrl:"http://39.98.153.96:8080/"
+            debug:"http://39.98.153.96:8082/",
+            release:"http://39.98.153.96:8082/",
+            testServerUrl:"http://39.98.153.96:8082/"
     ]
 }
