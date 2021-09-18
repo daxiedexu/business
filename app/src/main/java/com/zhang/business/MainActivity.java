@@ -12,7 +12,7 @@ import com.zhang.business.adapter.FragmentAdapter;
 import com.zhang.common.utils.Config;
 import com.zhang.common.utils.page.NoScrollViewPager;
 import com.zhang.home.HomeFragment;
-import com.zhang.kinds.KindsFragment;
+import com.zhang.kinds.view.KindsFragment;
 import com.zhang.message.MessageFragment;
 import com.zhang.person.PersonFragment;
 import com.zhang.shopcar.ShopCarFragment;
