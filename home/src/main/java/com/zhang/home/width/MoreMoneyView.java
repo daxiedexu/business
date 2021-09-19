@@ -38,14 +38,14 @@ public class MoreMoneyView extends androidx.appcompat.widget.AppCompatTextView {
 
     private void init() {
         mPaint = new Paint();
+        mPath = new Path();
         textPaint = new Paint();
+        textPath = new Path();
+        //属性设置
         textPaint.setTextSize(30);
         textPaint.setColor(Color.WHITE);
-        textPaint.setStyle(Paint.Style.FILL);
+        textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         textPaint.setTextAlign(Paint.Align.CENTER);
-        textPaint.setStrokeWidth(12);
-        mPath = new Path();
-        textPath = new Path();
         mPaint.setColor(Color.RED);
     }
 
@@ -56,9 +56,10 @@ public class MoreMoneyView extends androidx.appcompat.widget.AppCompatTextView {
         mPath.lineTo(200,0);
         mPath.lineTo(200,100);
         mPath.close();
-        textPath.lineTo(200,80);
-        textPath.lineTo(200,130);
+        textPath.lineTo(300,80);
+        textPath.moveTo(200,200);
+        textPath.close();
         canvas.drawPath(mPath,mPaint);
-        canvas.drawTextOnPath("折扣",textPath,20,-17,textPaint);
+        canvas.drawTextOnPath("折扣",textPath,0,0,textPaint);
     }
 }
