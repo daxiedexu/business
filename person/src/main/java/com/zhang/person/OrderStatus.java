@@ -1,7 +1,5 @@
 package com.zhang.person;
 
-import android.widget.TableLayout;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;

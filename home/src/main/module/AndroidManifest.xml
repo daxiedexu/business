@@ -6,6 +6,7 @@
         android:allowBackup="true">
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".DetailActivity"></activity>
     </application>
 
 </manifest>
