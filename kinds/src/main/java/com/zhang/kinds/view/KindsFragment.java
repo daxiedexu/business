@@ -28,7 +28,7 @@ public class KindsFragment  extends BaseMVPFragment implements KindsContrant {
     private ViewPager kindsVpDetail;
 
     @Override
-    protected void injectCompoent() {
+    protected void injectComponent() {
         DaggerKindsComponent.builder().fragmentComponent(fragmentComponent)
                 .kindsViewModule(new KindsViewModule(this))
                 .build().injectKinds(this);

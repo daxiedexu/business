@@ -1,4 +1,4 @@
-package com.zhang.home.net.entity;
+package com.zhang.home.entity;
 
 /**
  * @ClassName NetEntity
