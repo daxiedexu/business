@@ -3,11 +3,14 @@ package com.zhang.business;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.Manifest;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.blankj.utilcode.util.PermissionUtils;
 import com.zhang.business.adapter.FragmentAdapter;
 import com.zhang.common.utils.Config;
 import com.zhang.common.utils.page.NoScrollViewPager;
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        PermissionUtils.permission(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE}).request();//请求读写权限
         initView();
         initBottom();
     }

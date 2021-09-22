@@ -7,6 +7,7 @@ import com.alibaba.sdk.android.cloudcode.CloudCodeInitializer;
 import com.alibaba.sdk.android.cloudcode.CloudCodeLog;
 import com.alibaba.sdk.android.logger.LogLevel;
 import com.bw.di.BaseApplication;
+import com.taobao.sophix.SophixManager;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.zhang.common.utils.back.ProgressManger;
 
@@ -32,6 +33,7 @@ public class App extends BaseApplication {
             CloudCodeInitializer.init(this);
             CloudCodeLog.setLevel(LogLevel.DEBUG);
             CrashReport.initCrashReport(getApplicationContext(), "06a3451d22", BuildConfig.DEBUG);
+            SophixManager.getInstance().queryAndLoadNewPatch();//阿里热修复
         }
 
         // 必须在初始化ARouter之前配置
