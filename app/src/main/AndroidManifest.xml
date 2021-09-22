@@ -18,13 +18,15 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.Splash">
+
+        </activity>
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
         <!--开屏广告设置渠道-->
         <meta-data
             android:name="com.alibaba.sdk.android.cloudcode.channelId"
@@ -33,6 +35,7 @@
         <meta-data
             android:name="com.alibaba.sdk.android.cloudcode.mediaId"
             android:value="id=566388709907014657" />
+<<<<<<< HEAD
         <!--阿里热修复-->
         <meta-data
             android:name="com.taobao.android.hotfix.IDSECRET"
@@ -43,6 +46,10 @@
         <meta-data
             android:name="com.taobao.android.hotfix.RSASECRET"
             android:value="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDImpL2rzhem3Z4rlshbTa+QzJVwNm4AKCAL14vms43zdfE8nXhl3CAo6gS5yDCEk24IjMM5ZpOSFmvUu1c41l0YKH3Qr3iitqfccGlwLRkNLyzWbyRyCh51MqeqQHbfIU5cDkV/CodAQM51VECINJZMk3e3Fx350HC9AzTlTnToxtFFYWMslRaPv5zQL0w9z41ZDPzRo5ToP+Q/DHHMSNOZ0K6Pr3r9eb1fKqVEox3sqw6b0eJqWZXWG8cb6DO39QjLyuQe8oFt5+GikGH8X81A5QZeNkakY0EgRN8meXXnKhlM4UeYZjr4V6jyBXUIwDwh0gyf49FiKd2oZokm7nLAgMBAAECggEBAJ7ZiDa/WavQ/2dg6dj2WrsfCuTM6ZrDJFVdLQAVXebioVHbjW0uNnAnKBiP3WjQhaqhqjs0NZR3xk0HJd7AST3Wp2rc9vBFdAl+UxGmHzKacDK1hJUMIsEWt7wbqNTdLcHmE85M+CwveRZ6zMMaqnbnVrJ7XN21ymVOTDnfmQL0Zpq1/Hn1Aw2Z6oHYUWB4jAEn7qlKXoW61Vvqk8xJSjIr20z8IISQ7CdWE/0t918JBArlz3s2Exgk1a/kv0ZmsDxb15oCrBcrfy38IDQpoZu+CVmsIk8IKLPqpdkFCy084jJ4FC+LpqeGJxA+8Iv7LKe71qNeD2hCZgsRChSaMAECgYEA6+6+dGmsaUdBS8D4ncRIybiNs3nFtjm1vDW7mp915lO+8eXCP9emknk8JsNm5Hu6qiwJHtGcaRRAUkBVyIEtXbsjyFXoC2v6vB+GR8SGnLwDKC3JNhhnFX64Ev7cSp1I3PutdaUk9PmhdslOTm7htd4o8MvkWWRoeRaxHMS8jssCgYEA2aqSdq1BrkmVg4TYYrS7ftGWDwzlAOfzkx5SJzPmiYV12rYkQ6t80/OKDv2pqRqhSpxC6Ah9T5eBzopwWmY2yl6r5+BaLTUv0HPdRVWpDPzj+5HC1frQQSlEHpVxqGW8pulf07Arwkcw4IVm82wkj4bSsB5nf+G/ixZOEmaFIQECgYEAi4HAXFWf/SCFG6YfXCqUX7MhFt8KaZX2QDQFmohvzqH2ZlLVaaq6dCH7z2/7h18iIT2opvCK7BdtcTVZhBXeHW5q2irx6s8Ok+6QGB+8+TCzLS7lq3cCfVNQxOqul/ApBYJMLyRXlgOF1hdyli46iK+0xa3KeJFGtVMVp00tscECgYBbFEvLCv5jzniYmtrsmpGmJE71J0Ef2u8KDXL04nvB6a2CAhs0kapfChYn5a67iuAY10AL1ZmR12TCpx0SRpkAnxKxqSgyqIHEaOca3xgozh0bpEdxwEyqJ3lQjtoLS97fvOGTM7Frztw95rRIgWTfBdxdQ6utUCoVKhUrD+j/AQKBgF5fGJ7MTB/eR5tjRGhMiSWQ9PvInWSdQoPyWdsqwg5M9pIShKizBnEBZgYZUcAr1pKG2XtpJ0G/9wiqAGOxqPFxutwjwDwYz46zNgcNyNjewRX8W0tI8XEBOheUE43b2zglNxydBUDVLMm738shXZoMktx6Fpfek3PUt+GxF3V1" />
+=======
+
+
+>>>>>>> master
     </application>
 
 </manifest>

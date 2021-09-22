@@ -18,8 +18,9 @@ public class Config{
     public final static String MODULE_MESSAGE="/message/message";
     public final static String MODULE_PERSON="/person/person";
     public final static String MODULE_SEARCH="/search/search";
-    public final static String MODULE_DETAIL="/detail/detail";
 
+    public final static String MODULE_DETAIL="/detail/detail";
+    public final static String MODULE_CAR="/car/car";
     public final static String DETAIL_KEY="detail_key";
     public final static Integer INTENT_PHOTO=100;
 

@@ -1,7 +1,11 @@
 package com.zhang.home.data;
 
 import com.zhang.home.GetGoodsListByKeywordReq;
+
+import com.zhang.home.goods.entity.BaseResp;
+
 import com.zhang.home.goods.entity.Goods;
+
 
 import java.util.ArrayList;
 
@@ -31,7 +35,7 @@ public interface GoodApi {
 //    @POST("goods/getGoodsListByKeyword")
 //    fun getGoodsListByKeyword(@Body req: GetGoodsListByKeywordReq): Observable<BaseResp<MutableList<Goods>?>>
 
-    @POST("goods/getGoodsList")
-    Observable<ArrayList<Goods>> getGoodsListByKeyword(@Body GetGoodsListByKeywordReq req);
+    @POST("goods/getGoodsListByKeyword")
+    Observable<BaseResp<ArrayList<Goods>>> getGoodsListByKeyword(@Body GetGoodsListByKeywordReq req);
 
 }

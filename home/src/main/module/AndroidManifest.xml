@@ -6,6 +6,8 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".DetailActivity"/>
+        <activity android:name=".CarActivity"></activity>
+
     </application>
 
 </manifest>

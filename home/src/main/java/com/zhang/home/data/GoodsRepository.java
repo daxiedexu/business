@@ -1,7 +1,11 @@
 package com.zhang.home.data;
 
 import com.zhang.home.GetGoodsListByKeywordReq;
+
+import com.zhang.home.goods.entity.BaseResp;
+
 import com.zhang.home.goods.entity.Goods;
+
 import com.zhang.mvp_core.model.BaseRepository;
 
 import java.util.ArrayList;
@@ -9,7 +13,7 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import retrofit2.http.Body;
+
 
 /**
  * @ClassName GoodsRepository
@@ -25,7 +29,7 @@ public class GoodsRepository extends BaseRepository {
     @Inject
     public GoodsRepository() {
     }
-    public Observable<ArrayList<Goods>> getGoodsList(@Body GetGoodsListByKeywordReq req){
+    public Observable<BaseResp<ArrayList<Goods>>> getGoodsList(GetGoodsListByKeywordReq req){
         return ((GoodsModel)super.getModel("goods")).getGoodsList(req);
     }
 }

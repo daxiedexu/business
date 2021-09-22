@@ -14,4 +14,10 @@
             android:layout_height="match_parent"></TextView>
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/detail_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>

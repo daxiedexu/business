@@ -1,6 +1,10 @@
 package com.zhang.home.data;
 
+
+import com.zhang.home.goods.entity.BaseResp;
+
 import com.zhang.home.goods.entity.Goods;
+
 import com.zhang.mvp_core.view.IView;
 
 import java.util.ArrayList;
@@ -15,5 +19,5 @@ import java.util.ArrayList;
  * User: 伊莎贝拉
  */
 public interface View extends IView {
-    void onGetGoodsListResult(ArrayList<Goods> result);
+    void onGetGoodsListResult(BaseResp<ArrayList<Goods>> result);
 }
