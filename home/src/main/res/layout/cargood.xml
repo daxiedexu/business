@@ -4,4 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.youth.banner.Banner
+        android:id="@+id/cargood_ban"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+    </com.youth.banner.Banner>
+
+    <TextView
+        android:id="@+id/cargood_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
+    <TextView
+        android:textColor="@color/red"
+        android:id="@+id/cargood_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ></TextView>
+
+
 </LinearLayout>
