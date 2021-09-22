@@ -1,12 +1,11 @@
 package com.zhang.kinds.model;
 
 import com.zhang.kinds.net.api.KindsApi;
-import com.zhang.kinds.net.entitiy.KindsEntitiy;
-
+import com.zhang.kinds.net.entitiy.Category;
+import com.zhang.kinds.net.req.ReqCategory;
+import com.zhang.kinds.net.http.RetrofitFactory;
 import com.zhang.mvp_core.model.IModel;
-import com.zhang.net.RetrofitFactory;
 
-import java.util.List;
 
 import io.reactivex.Observable;
 
@@ -18,9 +17,8 @@ import io.reactivex.Observable;
  */
 public class KindsModel implements IModel {
 
-    public Observable<KindsEntitiy> getKinds() {
-        KindsApi kindsApi = RetrofitFactory.getRetrofitFactory().create(KindsApi.class);
-//        RetrofitFactory.Companion.getInstance().create(KindsApi.class).getCategory(new GetCategoryReq(parentId))
-        return kindsApi.kinds();
+    public Observable<Category> getKinds(int parentId) {
+//        KindsApi kindsApi = RetrofitFactory.getRetrofitFactory().create(KindsApi.class);
+        return  RetrofitFactory.getRetrofitFactory().create(KindsApi.class).getCategory(new ReqCategory(parentId));
     }
 }

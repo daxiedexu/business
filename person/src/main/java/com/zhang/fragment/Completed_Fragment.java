@@ -18,10 +18,6 @@ public class Completed_Fragment extends BaseFragment {
         return R.layout.completed;
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 0e794b15336a435d2ee71d08df07c234e082969f
 
     @Override
     protected void initData() {

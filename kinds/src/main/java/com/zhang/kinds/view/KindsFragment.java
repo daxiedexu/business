@@ -1,23 +1,22 @@
 package com.zhang.kinds.view;
 
-import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import androidx.viewpager.widget.ViewPager;
 
-import com.bw.di.component.DaggerFragmentComponent;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.zhang.kinds.R;
-import com.zhang.kinds.adapter.KindsAdapter;
+import com.zhang.kinds.adapter.ComputerAdapter;
 import com.zhang.kinds.adapter.KindsAdapters;
 import com.zhang.kinds.contrant.KindsContrant;
-
 import com.zhang.kinds.net.di.component.DaggerKindsComponent;
 import com.zhang.kinds.net.di.module.KindsViewModule;
-import com.zhang.kinds.net.entitiy.KindsEntitiy;
+import com.zhang.kinds.net.entitiy.Category;
 import com.zhang.kinds.presenter.KindsPresenterImpl;
 import com.zhang.mvp_core.view.BaseMVPFragment;
 
@@ -25,11 +24,16 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class KindsFragment  extends BaseMVPFragment implements KindsContrant {
+public class KindsFragment extends BaseMVPFragment implements KindsContrant {
     @Inject
     KindsPresenterImpl kindsPresenter;
+
     private RecyclerView kindsRvGroup;
-    private ViewPager kindsVpDetail;
+    private RecyclerView kindsRvGoods;
+    List<Category.DataBean> data;
+    List<Category.DataBean> computerData;
+    List<Category.DataBean> phoneData;
+    private TextView goodsTv;
 
     @Override
     protected void injectCompoent() {
@@ -40,36 +44,90 @@ public class KindsFragment  extends BaseMVPFragment implements KindsContrant {
     }
 
     @Override
-    public void kindsSuccess(KindsEntitiy kindsEntitiy) {
-        List<KindsEntitiy.DataBean> data = kindsEntitiy.getData();
-        Log.i("111111", "kindsSuccess: "+data.size());
-        KindsAdapter kindsAdapter = new KindsAdapter(getActivity(), data);
+    protected void initData() {
+        kindsPresenter.showKinds();
+        kindsPresenter.showComputer();
+        kindsPresenter.showPhone();
+    }
+
+    @Override
+    public void computerSuccess(Category category) {
+        computerData = category.getData();
+
+    }
+
+    @Override
+    public void phoneSuccess(Category category) {
+        phoneData = category.getData();
+    }
+
+    @Override
+    public void kindsSuccess(Category category) {
+        data = category.getData();
+
         KindsAdapters kindsAdapters = new KindsAdapters(data);
-        kindsRvGroup.addItemDecoration(new DividerItemDecoration(getActivity(),1));
-
+        kindsRvGroup.setAdapter(kindsAdapters);
+        kindsRvGroup.addItemDecoration(new DividerItemDecoration(getActivity(), 1));
         kindsRvGroup.setLayoutManager(new LinearLayoutManager(getActivity()));
+        kindsAdapters.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter<?, ?> adapter, View view, int position) {
+                for (int i = 0; i < data.size(); i++) {
+                    data.get(i).setCheck(false);
+                }
+                data.get(position).setCheck(true);
+                kindsAdapters.notifyDataSetChanged();
+                if (position == 0) {
+                    kindsRvGoods.setVisibility(View.VISIBLE);
+                    goodsTv.setVisibility(View.GONE);
+                    ComputerAdapter computerAdapter = new ComputerAdapter(R.layout.item_rv_goods, computerData);
+                    kindsRvGoods.setAdapter(computerAdapter);
+                    kindsRvGoods.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
+                } else if (position == 1) {
+                    kindsRvGoods.setVisibility(View.VISIBLE);
+                    goodsTv.setVisibility(View.GONE);
+                    ComputerAdapter computerAdapter = new ComputerAdapter(R.layout.item_rv_goods, phoneData);
+                    kindsRvGoods.setAdapter(computerAdapter);
+                    kindsRvGoods.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
+                } else {
+                    kindsRvGoods.setVisibility(View.GONE);
+                    goodsTv.setVisibility(View.VISIBLE);
+                }
 
+            }
+        });
         kindsRvGroup.setAdapter(kindsAdapters);
     }
+
 
     @Override
     public void kindsFailds(Throwable throwable) {
 
     }
+
+
+    @Override
+    public void computerFailds(Throwable throwable) {
+
+    }
+
+
+    @Override
+    public void phoneFailds(Throwable throwable) {
+
+    }
+
     @Override
     protected int bindLayout() {
         return R.layout.fragment_kinds;
     }
 
-    @Override
-    protected void initData() {
-        kindsPresenter.showKinds();
-    }
 
     @Override
     protected void initView() {
         kindsRvGroup = (RecyclerView) getActivity().findViewById(R.id.kinds_rv_group);
-        kindsVpDetail = (ViewPager) getActivity().findViewById(R.id.kinds_vp_detail);
+        kindsRvGoods = (RecyclerView) getActivity().findViewById(R.id.kinds_rv_goods);
+        goodsTv = (TextView) getActivity().findViewById(R.id.goods_tv);
     }
 
 }
