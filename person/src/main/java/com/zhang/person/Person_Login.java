@@ -30,10 +30,6 @@ import com.zhang.mvp_core.view.BaseActivity;
  */
 @Route(path=Person_Config.LOGIN)
 public class Person_Login extends BaseActivity {
-<<<<<<< HEAD
-
-=======
->>>>>>> b37936ed3fefe935e74717968030892900a15fc2
     private TextView loginTv;
     private EditText loginUserName;
     private EditText loginUserPwd;
