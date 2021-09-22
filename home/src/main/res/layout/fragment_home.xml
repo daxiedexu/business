@@ -104,20 +104,27 @@
                 android:layout_marginTop="10dp"
                 android:layout_below="@id/fg_home_net"
                 android:layout_width="match_parent"
-                android:layout_height="80dp">
+                android:layout_height="110dp">
             </androidx.recyclerview.widget.RecyclerView>
-            <com.zhouwei.mzbanner.MZBannerView
-                android:id="@+id/fg_home_mzBanner"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:id="@+id/foot"
+                android:background="@drawable/home_container_bg"
                 android:layout_below="@id/fg_home_discount"
-                android:layout_height="140dp"
-                android:layout_marginTop="6dp"
-                app:open_mz_mode="true"
-                app:middle_page_cover="true"
-                app:canLoop="false"
-                app:indicatorAlign="center"
-                app:indicatorPaddingLeft="10dp">
-            </com.zhouwei.mzbanner.MZBannerView>
+                android:layout_width="match_parent"
+                android:layout_height="180dp">
+                <com.zhouwei.mzbanner.MZBannerView
+                    android:id="@+id/fg_home_mzBanner"
+                    android:layout_width="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="6dp"
+                    app:open_mz_mode="true"
+                    app:middle_page_cover="true"
+                    app:canLoop="false"
+                    app:indicatorAlign="center"
+                    app:indicatorPaddingLeft="10dp">
+                </com.zhouwei.mzbanner.MZBannerView>
+            </RelativeLayout>
             <TextView
                 android:id="@+id/fg_recommend"
                 android:text="推荐商品"
@@ -125,8 +132,8 @@
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FF8800"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/fg_home_mzBanner"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/foot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             </TextView>

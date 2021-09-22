@@ -11,12 +11,13 @@ package com.zhang.home.entity;
  */
 public class DiscountEntity {
     private String discountUrl;
+    private String price;
+    private String morePrice;
 
-    public DiscountEntity() {
-    }
-
-    public DiscountEntity(String discountUrl) {
+    public DiscountEntity(String discountUrl, String price, String morePrice) {
         this.discountUrl = discountUrl;
+        this.price = price;
+        this.morePrice = morePrice;
     }
 
     public String getDiscountUrl() {
@@ -25,5 +26,21 @@ public class DiscountEntity {
 
     public void setDiscountUrl(String discountUrl) {
         this.discountUrl = discountUrl;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getMorePrice() {
+        return morePrice;
+    }
+
+    public void setMorePrice(String morePrice) {
+        this.morePrice = morePrice;
     }
 }

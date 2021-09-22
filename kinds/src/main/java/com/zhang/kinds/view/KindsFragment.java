@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.zhang.kinds.R;
@@ -36,7 +35,7 @@ public class KindsFragment extends BaseMVPFragment implements KindsContrant {
     private TextView goodsTv;
 
     @Override
-    protected void injectCompoent() {
+    protected void injectComponent() {
         DaggerKindsComponent.builder().fragmentComponent(fragmentComponent)
                 .kindsViewModule(new KindsViewModule(this))
                 .build().injectKinds(this);
