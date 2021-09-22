@@ -3,6 +3,7 @@ package com.zhang.home.data;
 import com.zhang.home.GetGoodsListByKeywordReq;
 import com.zhang.home.Goods;
 import com.zhang.home.data.GoodsModel;
+import com.zhang.home.goods.entity.BaseResp;
 import com.zhang.mvp_core.model.BaseRepository;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class GoodsRepository extends BaseRepository {
     @Inject
     public GoodsRepository() {
     }
-    public Observable<ArrayList<Goods>> getGoodsList(@Body GetGoodsListByKeywordReq req){
+    public Observable<BaseResp<ArrayList<Goods>>> getGoodsList(GetGoodsListByKeywordReq req){
         return ((GoodsModel)super.getModel("goods")).getGoodsList(req);
     }
 }
