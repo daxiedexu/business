@@ -1,5 +1,8 @@
 package com.zhang.home.goods.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
@@ -7,7 +10,7 @@ import java.util.List;
  * @date 2021/9/19
  * Description  
  */
-public class Goods {
+public class Goods implements Parcelable {
     int  id  ; //商品ID
     int  categoryId  ; //分类ID
     String goodsDesc  ; //商品描述
@@ -39,6 +42,38 @@ public class Goods {
         this.goodsSku = goodsSku;
         this.maxPage = maxPage;
     }
+
+    protected Goods(Parcel in) {
+        id = in.readInt();
+        categoryId = in.readInt();
+        goodsDesc = in.readString();
+        goodsDefaultIcon = in.readString();
+        if (in.readByte() == 0) {
+            goodsDefaultPrice = null;
+        } else {
+            goodsDefaultPrice = in.readLong();
+        }
+        goodsDetailOne = in.readString();
+        goodsDetailTwo = in.readString();
+        goodsSalesCount = in.readInt();
+        goodsStockCount = in.readInt();
+        goodsCode = in.readString();
+        goodsDefaultSku = in.readString();
+        goodsBanner = in.readString();
+        maxPage = in.readInt();
+    }
+
+    public static final Creator<Goods> CREATOR = new Creator<Goods>() {
+        @Override
+        public Goods createFromParcel(Parcel in) {
+            return new Goods(in);
+        }
+
+        @Override
+        public Goods[] newArray(int size) {
+            return new Goods[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -150,5 +185,32 @@ public class Goods {
 
     public void setMaxPage(int maxPage) {
         this.maxPage = maxPage;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeInt(categoryId);
+        dest.writeString(goodsDesc);
+        dest.writeString(goodsDefaultIcon);
+        if (goodsDefaultPrice == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(goodsDefaultPrice);
+        }
+        dest.writeString(goodsDetailOne);
+        dest.writeString(goodsDetailTwo);
+        dest.writeInt(goodsSalesCount);
+        dest.writeInt(goodsStockCount);
+        dest.writeString(goodsCode);
+        dest.writeString(goodsDefaultSku);
+        dest.writeString(goodsBanner);
+        dest.writeInt(maxPage);
     }
 }

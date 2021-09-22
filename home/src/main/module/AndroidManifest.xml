@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zhang.home">
 
-    <application
-        android:allowBackup="true">
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".SearchActivity"></activity>
+    <application android:allowBackup="true">
+        <activity android:name=".ItemActivity"></activity>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".SearchActivity" />
     </application>
 
 </manifest>
