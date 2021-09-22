@@ -12,11 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.zhang.common.utils.back.SharedManger;
 import com.zhang.mvp_core.view.BaseActivity;
 
 /**
@@ -35,14 +36,12 @@ public class Person_Login extends BaseActivity {
     private EditText loginUserPwd;
     private Button loginBtn;
 
-
     @Override
     protected void initData() {
+        SharedManger user=new SharedManger(this, "user");
 
         loginUserName.addTextChangedListener(new TextChanged());
         loginUserPwd.addTextChangedListener(new TextChanged());
-
-
         SpannableStringBuilder spannableStringBuilder=new SpannableStringBuilder( );
         spannableStringBuilder.append("还没有账户？立即注册");
         ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.parseColor("#FF0090FF"));
@@ -51,13 +50,21 @@ public class Person_Login extends BaseActivity {
         ClickableSpan clickableSpan=new ClickableSpan( ) {
             @Override
             public void onClick(@NonNull View widget) {
-                Toast.makeText(Person_Login.this, "我要跳转到注册页面", Toast.LENGTH_SHORT).show( );
+                ARouter.getInstance().build(Person_Config.REGISTER).greenChannel().navigation();
             }
         };
         spannableStringBuilder.setSpan(clickableSpan,6,10, Spanned.SPAN_COMPOSING);
         loginTv.setText(spannableStringBuilder);
         loginTv.setHighlightColor(Color.TRANSPARENT);
         loginTv.setMovementMethod(LinkMovementMethod.getInstance());
+
+        loginBtn.setOnClickListener(new View.OnClickListener( ) {
+            @Override
+            public void onClick(View v) {
+                user.putValue("isLogin",true);
+                finish();
+            }
+        });
     }
 
     @Override
@@ -98,4 +105,5 @@ public class Person_Login extends BaseActivity {
 
         }
     }
+
 }

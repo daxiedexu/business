@@ -15,6 +15,12 @@
     </style>
 
 
+    <style name="orange">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/orange</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp56</item>
+    </style>
 
     <!-- person页面 -->
         <style name="Person_Order">
@@ -34,11 +40,13 @@
             <item name="android:drawableRight">@drawable/icon_arrow</item>
         </style>
 
+    <!-- 横向分割线 -->
         <style name="Horizontal_divider">
             <item name="android:background">@color/gray2</item>
             <item name="android:layout_width">match_parent</item>
             <item name="android:layout_height">5dp</item>
         </style>
+    <!-- 纵向分割线 -->
         <style name="Vertical_divider">
             <item name="android:background">@color/gray2</item>
             <item name="android:layout_width">5px</item>

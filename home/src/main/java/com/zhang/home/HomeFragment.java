@@ -24,6 +24,7 @@ import com.youth.banner.loader.ImageLoader;
 import com.zhang.common.utils.Config;
 import com.zhang.common.utils.page.StatusBarColorUtils;
 import com.zhang.home.Dmvp.contract.HomeContract;
+
 import com.zhang.home.Dmvp.di.component.DaggerHomeComponent;
 import com.zhang.home.Dmvp.di.module.HomeViewModule;
 import com.zhang.home.Dmvp.presenter.HomePresenter;

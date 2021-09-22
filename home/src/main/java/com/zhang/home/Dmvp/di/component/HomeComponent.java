@@ -1,7 +1,10 @@
 package com.zhang.home.Dmvp.di.component;
 
+import android.app.Activity;
+
 import com.bw.di.component.FragmentComponent;
 import com.bw.di.scope.PerComponentScope;
+import com.zhang.home.DetailActivity;
 import com.zhang.home.Dmvp.di.module.HomeModelModule;
 import com.zhang.home.Dmvp.di.module.HomeViewModule;
 import com.zhang.home.HomeFragment;
@@ -21,4 +24,5 @@ import dagger.Component;
 @Component(dependencies = {FragmentComponent.class},modules = {HomeViewModule.class, HomeModelModule.class})
 public interface HomeComponent {
     void injectKinds(HomeFragment homeFragment);
+
 }

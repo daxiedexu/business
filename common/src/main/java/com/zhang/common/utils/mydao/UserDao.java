@@ -24,8 +24,8 @@ public class UserDao extends AbstractDao<User, Void> {
      * Can be used for QueryBuilder and for referencing column names.
      */
     public static class Properties {
-        public final static Property User_name = new Property(0, Integer.class, "user_name", false, "USER_NAME");
-        public final static Property User_pwd = new Property(1, String.class, "user_pwd", false, "USER_PWD");
+        public final static Property User_name = new Property(0, String.class, "user_name", false, "USER_NAME");
+        public final static Property User_pwd = new Property(1, int.class, "user_pwd", false, "USER_PWD");
     }
 
 
@@ -41,8 +41,8 @@ public class UserDao extends AbstractDao<User, Void> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"USER\" (" + //
-                "\"USER_NAME\" INTEGER," + // 0: user_name
-                "\"USER_PWD\" TEXT);"); // 1: user_pwd
+                "\"USER_NAME\" TEXT," + // 0: user_name
+                "\"USER_PWD\" INTEGER NOT NULL );"); // 1: user_pwd
     }
 
     /** Drops the underlying database table. */
@@ -55,30 +55,22 @@ public class UserDao extends AbstractDao<User, Void> {
     protected final void bindValues(DatabaseStatement stmt, User entity) {
         stmt.clearBindings();
  
-        Integer user_name = entity.getUser_name();
+        String user_name = entity.getUser_name();
         if (user_name != null) {
-            stmt.bindLong(1, user_name);
+            stmt.bindString(1, user_name);
         }
- 
-        String user_pwd = entity.getUser_pwd();
-        if (user_pwd != null) {
-            stmt.bindString(2, user_pwd);
-        }
+        stmt.bindLong(2, entity.getUser_pwd());
     }
 
     @Override
     protected final void bindValues(SQLiteStatement stmt, User entity) {
         stmt.clearBindings();
  
-        Integer user_name = entity.getUser_name();
+        String user_name = entity.getUser_name();
         if (user_name != null) {
-            stmt.bindLong(1, user_name);
+            stmt.bindString(1, user_name);
         }
- 
-        String user_pwd = entity.getUser_pwd();
-        if (user_pwd != null) {
-            stmt.bindString(2, user_pwd);
-        }
+        stmt.bindLong(2, entity.getUser_pwd());
     }
 
     @Override
@@ -89,16 +81,16 @@ public class UserDao extends AbstractDao<User, Void> {
     @Override
     public User readEntity(Cursor cursor, int offset) {
         User entity = new User( //
-            cursor.isNull(offset + 0) ? null : cursor.getInt(offset + 0), // user_name
-            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1) // user_pwd
+            cursor.isNull(offset + 0) ? null : cursor.getString(offset + 0), // user_name
+            cursor.getInt(offset + 1) // user_pwd
         );
         return entity;
     }
      
     @Override
     public void readEntity(Cursor cursor, User entity, int offset) {
-        entity.setUser_name(cursor.isNull(offset + 0) ? null : cursor.getInt(offset + 0));
-        entity.setUser_pwd(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setUser_name(cursor.isNull(offset + 0) ? null : cursor.getString(offset + 0));
+        entity.setUser_pwd(cursor.getInt(offset + 1));
      }
     
     @Override

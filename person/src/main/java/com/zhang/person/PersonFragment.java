@@ -1,7 +1,7 @@
 package com.zhang.person;
 
 import android.content.Intent;
-import android.util.Log;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +13,7 @@ import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bw.testphoto.Test;
 import com.zhang.common.utils.Config;
+import com.zhang.common.utils.back.SharedManger;
 import com.zhang.mvp_core.view.BaseFragment;
 
 import java.util.ServiceLoader;
@@ -42,12 +43,15 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public void initData() {
+
+
         personImg.setOnClickListener(this::onClick);
         personPay.setOnClickListener(this::onClick);
         personWait.setOnClickListener(this::onClick);
         personCompleted.setOnClickListener(this::onClick);
         personOrder.setOnClickListener(this::onClick);
         personLogin.setOnClickListener(this::onClick);
+
     }
 
 
@@ -110,11 +114,20 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
 
         @Override
         public void onInterrupt(Postcard postcard) {
-
             ARouter.getInstance().build(Person_Config.LOGIN).greenChannel().navigation();
-
         }
     }
 
 
+    @Override
+    public void onResume() {
+        super.onResume( );
+        SharedManger user=new SharedManger(getContext(), "user");
+        SharedPreferences sharedPreferences=user.getSharedPreferences( );
+        String zh=sharedPreferences.getString("zh", null);
+        boolean isLogin=sharedPreferences.getBoolean("isLogin", false);
+        if(isLogin){
+            personLogin.setText(zh);
+        }
+    }
 }

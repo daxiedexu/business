@@ -14,6 +14,7 @@ public class Person_Config {
     public final static String ORDER="/person/order";
     public final static String LOGIN="/test/login";
     public final static String ORDER_KTY="order_key";
+    public final static String REGISTER="/test/register";
 
     /**
      * 全部
