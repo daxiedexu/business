@@ -20,10 +20,10 @@ public abstract class BaseMVPFragment extends BaseFragment{
         fragmentComponent = DaggerFragmentComponent.builder().appComponent(((BaseApplication) getContext().getApplicationContext()).appComponent)
                 .fragmentModule(new FragmentModule(this))
                 .build();
-        injectCompoent();
+        injectComponent();
         super.onActivityCreated(savedInstanceState);
 
     }
 
-    protected abstract void injectCompoent();
+    protected abstract void injectComponent();
 }

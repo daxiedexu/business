@@ -26,7 +26,7 @@ public class GoodsRepository extends BaseRepository {
     @Inject
     public GoodsRepository() {
     }
-    public Observable<ArrayList<Goods>> getGoodsList(String keyword, int pageNo){
-        return ((GoodsModel)super.getModel("kinds")).getGoodsList(keyword,pageNo);
+    public Observable<ArrayList<Goods>> getGoodsList(@Body GetGoodsListByKeywordReq req){
+        return ((GoodsModel)super.getModel("goods")).getGoodsList(req);
     }
 }

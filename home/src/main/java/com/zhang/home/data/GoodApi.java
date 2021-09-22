@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * @ClassName GoodApi
@@ -32,6 +33,6 @@ public interface GoodApi {
 //    fun getGoodsListByKeyword(@Body req: GetGoodsListByKeywordReq): Observable<BaseResp<MutableList<Goods>?>>
 
     @POST("goods/getGoodsList")
-    Observable<ArrayList<Goods>> getGoodsListByKeyword(String keyword, int pageNo);
+    Observable<ArrayList<Goods>> getGoodsListByKeyword(@Body GetGoodsListByKeywordReq req);
 
 }

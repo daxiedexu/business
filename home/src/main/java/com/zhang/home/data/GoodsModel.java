@@ -5,6 +5,7 @@ import com.zhang.home.Goods;
 import com.zhang.home.data.GoodApi;
 import com.zhang.mvp_core.model.IModel;
 import com.zhang.net.RetrofitFactory;
+import com.zhang.net.commerce.RetrofitManger;
 
 import java.util.ArrayList;
 
@@ -21,8 +22,8 @@ import retrofit2.http.Body;
  * User: 伊莎贝拉
  */
 public class GoodsModel implements IModel {
-    public Observable<ArrayList<Goods>> getGoodsList(String keyword, int pageNo){
-        GoodApi goodApi=RetrofitFactory.getRetrofitFactory( ).create(GoodApi.class);
-        return goodApi.getGoodsListByKeyword(keyword,pageNo);
+    public Observable<ArrayList<Goods>> getGoodsList(@Body GetGoodsListByKeywordReq req){
+        GoodApi goodApi=RetrofitManger.getInstance().getRetrofit().create(GoodApi.class);
+        return goodApi.getGoodsListByKeyword(req);
     }
 }

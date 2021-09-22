@@ -14,6 +14,11 @@ package com.zhang.home;
     按关键字搜索商品
  */
 public class GetGoodsListByKeywordReq {
+    public GetGoodsListByKeywordReq(String keyword, int pageNo) {
+        this.keyword=keyword;
+        this.pageNo=pageNo;
+    }
+
     private  String keyword;
     private  int pageNo;
 }

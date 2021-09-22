@@ -17,6 +17,6 @@ import okhttp3.Response;
 public class CustomInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
-        return chain.proceed(chain.request().newBuilder().addHeader("token", "123456").build());
+        return chain.proceed(chain.request().newBuilder().addHeader("token", "token").build());
     }
 }
