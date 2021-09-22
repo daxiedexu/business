@@ -55,6 +55,7 @@ public class KindsEntitiy {
         private int category_id;
         private int parent_id;
         private String category_name;
+        private boolean isCheck;
 
         public int getId() {
             return id;
@@ -86,6 +87,14 @@ public class KindsEntitiy {
 
         public void setCategory_name(String category_name) {
             this.category_name = category_name;
+        }
+
+        public boolean isCheck() {
+            return isCheck;
+        }
+
+        public void setCheck(boolean check) {
+            isCheck = check;
         }
     }
 }

@@ -2,11 +2,9 @@ package com.zhang.kinds.repository;
 
 import com.zhang.kinds.model.KindsModel;
 
-import com.zhang.kinds.net.entitiy.KindsEntitiy;
+import com.zhang.kinds.net.entitiy.Category;
 
 import com.zhang.mvp_core.model.BaseRepository;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -24,8 +22,8 @@ public class KindsRepositoryImpl extends BaseRepository {
     public KindsRepositoryImpl() {
     }
 
-
-    public Observable<KindsEntitiy> reqKinds() {
-        return ((KindsModel)super.getModel("kinds")).getKinds();
+    public Observable<Category> reqKinds(int parentId) {
+        return ((KindsModel)super.getModel("kinds")).getKinds(parentId);
     }
+
 }
