@@ -3,6 +3,7 @@ package com.zhang.business;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zhang.common.utils.Config;
@@ -26,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus){
-            ARouter.getInstance().build(Config.MODULE_MAIN).navigation();
+            ARouter.getInstance().build(Config.MODULE_SPLASH).navigation();
         }else {
             finish();
         }

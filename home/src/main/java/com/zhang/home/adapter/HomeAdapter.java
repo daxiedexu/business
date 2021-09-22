@@ -26,6 +26,7 @@ import java.util.List;
 public class HomeAdapter extends BaseQuickAdapter<Goods, BaseViewHolder> {
     public HomeAdapter(@Nullable List<Goods> data) {
         super(R.layout.home_item, data);
+        addChildClickViewIds(R.id.home_image);
     }
 
     @Override
@@ -34,6 +35,5 @@ public class HomeAdapter extends BaseQuickAdapter<Goods, BaseViewHolder> {
         baseViewHolder.setText(R.id.home_desc,goods.getGoodsDesc());
         baseViewHolder.setText(R.id.home_price,goods.getGoodsDefaultPrice().toString());
         baseViewHolder.setText(R.id.home_stockCount,String.valueOf(goods.getGoodsStockCount()));
-
     }
 }

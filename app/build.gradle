@@ -55,7 +55,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     //导入依赖
     implementation libs.bottom
-
-
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' //ARouter依赖
+    implementation 'com.aliyun.ams:alicloud-android-cloudcode:1.0.5'
 }

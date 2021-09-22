@@ -13,7 +13,7 @@ import com.bw.di.module.AppModule;
  * User: msi
  */
 public class BaseApplication extends Application {
-    public  AppComponent appComponent;
+    public AppComponent appComponent;
 
     @Override
     public void onCreate() {

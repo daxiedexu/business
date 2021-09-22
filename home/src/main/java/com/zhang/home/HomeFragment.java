@@ -2,7 +2,6 @@ package com.zhang.home;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,12 +11,13 @@ import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
@@ -50,7 +50,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class HomeFragment extends BaseMVPFragment implements HomeContract {
+public class HomeFragment extends BaseMVPFragment implements HomeContract, OnItemClickListener {
     private static final String TAG = "HomeFragment";
     private TextSwitcher fgHomeTextSwitcher;
     private Banner fgHomeBanner;
@@ -76,6 +76,84 @@ public class HomeFragment extends BaseMVPFragment implements HomeContract {
         fgHomeSearch = (TextView) getActivity().findViewById(R.id.fg_home_search);
         fgHomeDiscount = (RecyclerView) getActivity().findViewById(R.id.fg_home_discount);
         fgRecyclerGoods = (RecyclerView) getActivity().findViewById(R.id.fg_recycler_goods);
+    }
+
+    @Override
+    public void initData() {
+        initBanner();
+        List<String> list = new ArrayList<>();
+        //实现文字广告
+        list.add("夏日炎炎，第一波福利还有30秒到达战场");
+        list.add("新用户立领1000元优惠券");
+        fgHomeTextSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                TextView tv = new TextView(getActivity());
+                tv.setOnClickListener(view->{
+                    Toast.makeText(getActivity(), tv.getText().toString(), Toast.LENGTH_SHORT).show();
+                });
+                return tv;
+            }
+        });
+        new TextSwitcherAnimation(list, fgHomeTextSwitcher).create();
+        //点击跳转Activity
+        fgHomeSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(Config.MODULE_SEARCH).greenChannel().navigation();
+            }
+        });
+        initMzBanner();
+        initDiscount();
+        initNetRecycler();
+    }
+
+    @Override
+    protected void injectComponent() {
+        DaggerHomeComponent.builder().fragmentComponent(fragmentComponent)
+                .homeViewModule(new HomeViewModule(this))
+                .build().injectKinds(this);
+    }
+
+    private void initBanner() {
+        fgHomeBanner.setImages(imageList);
+        fgHomeBanner.setDelayTime(2000);
+        fgHomeBanner.setBannerStyle(BannerConfig.RIGHT);
+        fgHomeBanner.setImageLoader(new ImageLoader() {
+            @Override
+            public void displayImage(Context context, Object path, ImageView imageView) {
+                imageView.setImageResource((Integer) path);
+            }
+        });
+        fgHomeBanner.start();
+    }
+
+    private void initMzBanner() {
+        // 设置数据
+        fgHomeMzBanner.setPages(imageList, new MZHolderCreator<BannerViewHolder>() {
+            @Override
+            public BannerViewHolder createViewHolder() {
+                return new BannerViewHolder();
+            }
+        });
+        fgHomeMzBanner.setIndicatorVisible(false);
+    }
+
+    class BannerViewHolder implements MZViewHolder<Integer> {
+        private ImageView mImageView;
+        @Override
+        public View createView(Context context) {
+            // 返回页面布局
+            View view = LayoutInflater.from(context).inflate(R.layout.mz_banner,null);
+            mImageView = (ImageView) view.findViewById(R.id.banner_image);
+            return view;
+        }
+
+        @Override
+        public void onBind(Context context, int position, Integer data) {
+            // 数据绑定
+            mImageView.setImageResource(data);
+        }
     }
 
     private void initDiscount() {
@@ -116,17 +194,6 @@ public class HomeFragment extends BaseMVPFragment implements HomeContract {
         fgHomeNet.setLayoutManager(gridLayoutManager);
     }
 
-    private void initMzBanner() {
-        // 设置数据
-        fgHomeMzBanner.setPages(imageList, new MZHolderCreator<BannerViewHolder>() {
-            @Override
-            public BannerViewHolder createViewHolder() {
-                return new BannerViewHolder();
-            }
-        });
-        fgHomeMzBanner.setIndicatorVisible(false);
-    }
-
     @Override
     public void onSuccess(BaseResp<List<Goods>> resp) {
         HomeAdapter homeAdapter = new HomeAdapter(resp.getData());
@@ -142,79 +209,19 @@ public class HomeFragment extends BaseMVPFragment implements HomeContract {
                 return false;
             }
         };
+        homeAdapter.setOnItemClickListener(this::onItemClick);
         fgRecyclerGoods.setLayoutManager(new GridLayoutManager(getActivity(),2));
     }
 
     @Override
     public void onFail(Throwable throwable) {
-
+        Toast.makeText(getActivity(), throwable.getMessage().toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    protected void injectComponent() {
-        DaggerHomeComponent.builder().fragmentComponent(fragmentComponent)
-                .homeViewModule(new HomeViewModule(this))
-                .build().injectKinds(this);
-    }
-
-    class BannerViewHolder implements MZViewHolder<Integer> {
-        private ImageView mImageView;
-        @Override
-        public View createView(Context context) {
-            // 返回页面布局
-            View view = LayoutInflater.from(context).inflate(R.layout.mz_banner,null);
-            mImageView = (ImageView) view.findViewById(R.id.banner_image);
-            return view;
-        }
-
-        @Override
-        public void onBind(Context context, int position, Integer data) {
-            // 数据绑定
-            mImageView.setImageResource(data);
-        }
-    }
-
-    private void initBanner() {
-        fgHomeBanner.setImages(imageList);
-        fgHomeBanner.setDelayTime(2000);
-        fgHomeBanner.setBannerStyle(BannerConfig.RIGHT);
-        fgHomeBanner.setImageLoader(new ImageLoader() {
-            @Override
-            public void displayImage(Context context, Object path, ImageView imageView) {
-                imageView.setImageResource((Integer) path);
-            }
-        });
-        fgHomeBanner.start();
-    }
-
-    @Override
-    public void initData() {
-        initBanner();
-        initMzBanner();
-        initDiscount();
-        initNetRecycler();
-        List<String> list = new ArrayList<>();
-        //实现文字广告
-        list.add("夏日炎炎，第一波福利还有30秒到达战场");
-        list.add("新用户立领1000元优惠券");
-        fgHomeTextSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
-            @Override
-            public View makeView() {
-                TextView tv = new TextView(getActivity());
-                tv.setOnClickListener(view->{
-                    Toast.makeText(getActivity(), tv.getText().toString(), Toast.LENGTH_SHORT).show();
-                });
-                return tv;
-            }
-        });
-        new TextSwitcherAnimation(list, fgHomeTextSwitcher).create();
-        //点击跳转Activity
-        fgHomeSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build(Config.MODULE_SEARCH).greenChannel().navigation();
-            }
-        });
+    public void onItemClick(@NonNull @NotNull BaseQuickAdapter<?, ?> adapter, @NonNull @NotNull View view, int position) {
+        Goods goods = (Goods) adapter.getItem(position);
+        //设置传递数据
     }
 
     @Override
@@ -236,10 +243,5 @@ public class HomeFragment extends BaseMVPFragment implements HomeContract {
     public void onResume() {
         super.onResume();
         fgHomeBanner.start();
-    }
-
-    @Override
-    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
     }
 }
