@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(),FragmentAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,fragments);
         actMainNoScrollViewPager.setScroll(false);
         actMainNoScrollViewPager.setAdapter(fragmentAdapter);
-
-
     }
 
     private void initBottom() {

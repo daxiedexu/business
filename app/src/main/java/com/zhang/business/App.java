@@ -1,10 +1,11 @@
 package com.zhang.business;
 
-import android.app.Application;
 import android.os.Process;
 import android.text.TextUtils;
-import android.util.Log;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.alibaba.sdk.android.cloudcode.CloudCodeInitializer;
+import com.alibaba.sdk.android.cloudcode.CloudCodeLog;
+import com.alibaba.sdk.android.logger.LogLevel;
 import com.bw.di.BaseApplication;
 import com.zhang.common.utils.back.ProgressManger;
 
@@ -25,9 +26,11 @@ public class App extends BaseApplication {
         //通过包名去判断当前执行进程，防止多次初始化
         String result = ProgressManger.getProcessName(this, Process.myPid());
         if (!TextUtils.isEmpty(result)&&result.equalsIgnoreCase(getPackageName())){
-            Log.i(TAG, String.format("当前初始化进程是：%s",getPackageName()));
+            CloudCodeInitializer.setOAID(null);
+            // 调用云码sdk初始化
+            CloudCodeInitializer.init(this);
+            CloudCodeLog.setLevel(LogLevel.DEBUG);
         }
-
 
         // 必须在初始化ARouter之前配置
         if (BuildConfig.DEBUG){
