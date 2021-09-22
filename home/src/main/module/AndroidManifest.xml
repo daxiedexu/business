@@ -3,10 +3,11 @@
     package="com.zhang.home">
 
     <application android:allowBackup="true">
-        <activity android:name=".ItemActivity"/>
         <activity android:name=".HomeActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".DetailActivity"/>
+        <activity android:name=".CarActivity"></activity>
+
     </application>
 
 </manifest>

@@ -1,8 +1,12 @@
 package com.zhang.home.data;
 
 import com.zhang.home.GetGoodsListByKeywordReq;
-import com.zhang.home.Goods;
+
+
 import com.zhang.home.goods.entity.BaseResp;
+
+import com.zhang.home.goods.entity.Goods;
+
 import com.zhang.mvp_core.presenter.BasePresenter;
 
 import org.jetbrains.annotations.NotNull;
@@ -15,7 +19,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.http.Body;
+
 
 /**
  * @ClassName GoodsPresenter
