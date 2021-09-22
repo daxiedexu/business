@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ItemActivity">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/act_item_tab"
+        app:tabTextColor="#002AFF"
+        app:tabIndicatorColor="#ff8800"
+        app:tabSelectedTextColor="#E91E63"
+        app:tabMode="fixed"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+    </com.google.android.material.tabs.TabLayout>
+    <com.youth.banner.Banner
+        android:id="@+id/act_item_banner"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+    </com.youth.banner.Banner>
+    <TextView
+        android:id="@+id/act_item_title"
+        android:lines="2"
+        android:textSize="12sp"
+        android:textColor="#68635E"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+    <TextView
+        android:id="@+id/act_item_price"
+        android:textSize="12sp"
+        android:textColor="#FF0000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+    </LinearLayout>
+</LinearLayout>

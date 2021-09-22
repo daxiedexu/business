@@ -1,6 +1,6 @@
 package com.zhang.home.data;
 
-import com.zhang.home.Goods;
+import com.zhang.home.goods.entity.Goods;
 import com.zhang.mvp_core.view.IView;
 
 import java.util.ArrayList;

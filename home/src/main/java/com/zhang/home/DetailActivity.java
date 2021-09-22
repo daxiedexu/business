@@ -11,6 +11,7 @@ import com.zhang.home.data.DaggerHomeActivityComponent;
 import com.zhang.home.data.GoodsPresenter;
 import com.zhang.home.data.GoodsViewModule;
 import com.zhang.home.data.View;
+import com.zhang.home.goods.entity.Goods;
 import com.zhang.mvp_core.view.BaseMVPActivity;
 import java.util.ArrayList;
 import javax.inject.Inject;
@@ -54,15 +55,15 @@ public class DetailActivity extends BaseMVPActivity implements View {
     }
 
     @Override
-    public void onGetGoodsListResult(ArrayList<Goods> result) {
-
-        Log.i("123456", "onGetGoodsListResult: "+result);
-    }
-
-    @Override
     protected void injectCompoent() {
         DaggerHomeActivityComponent.builder().activityComponent(activityComponent)
                 .goodsViewModule(new GoodsViewModule(this))
                 .build().injectDetail(this);
     }
+
+    @Override
+    public void onGetGoodsListResult(ArrayList<Goods> result) {
+
+    }
+
 }

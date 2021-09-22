@@ -1,14 +1,13 @@
 package com.zhang.home.data;
 
 import com.zhang.home.GetGoodsListByKeywordReq;
-import com.zhang.home.Goods;
+import com.zhang.home.goods.entity.Goods;
 
 import java.util.ArrayList;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 /**
  * @ClassName GoodApi
