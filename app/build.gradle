@@ -68,4 +68,6 @@ dependencies {
     implementation 'com.aliyun.ams:alicloud-android-hotfix:3.3.0'
     //用于申请权限的工具类
     implementation 'com.blankj:utilcode:1.30.6'
+    //LeakCanary集成
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
 }

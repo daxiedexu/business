@@ -3,7 +3,6 @@ package com.zhang.business;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zhang.common.utils.Config;
