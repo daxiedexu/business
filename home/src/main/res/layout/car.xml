@@ -14,6 +14,9 @@
             android:layout_height="wrap_content"></ImageView>
 
         <com.google.android.material.tabs.TabLayout
+            app:tabIndicatorFullWidth="false"
+            app:tabTextColor="@color/black"
+            app:tabSelectedTextColor="@color/white"
             app:tabBackground="@color/orange"
             android:id="@+id/car_tab"
             android:layout_width="match_parent"

@@ -25,10 +25,13 @@ import java.util.List;
 public class NetAdapter extends BaseQuickAdapter<NetEntity, BaseViewHolder> {
     public NetAdapter(@Nullable List<NetEntity> data) {
         super(R.layout.net_item, data);
+
     }
 
     @Override
     protected void convert(@NotNull BaseViewHolder baseViewHolder, NetEntity netEntity) {
+
+
         baseViewHolder.setText(R.id.net_title,netEntity.getTitle());
         Glide.with(getContext())
                 .load(netEntity.getImage())

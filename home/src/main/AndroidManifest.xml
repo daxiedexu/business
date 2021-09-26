@@ -20,6 +20,9 @@
         <activity android:name=".SearchActivity"></activity>
         <activity android:name=".DetailActivity"></activity>
         <activity android:name=".CarActivity"></activity>
+        <activity android:name=".LiveActivity"></activity>
+        <activity android:name=".LiveItemActivity"></activity>
+
     </application>
 
 </manifest>

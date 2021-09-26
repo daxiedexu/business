@@ -1,5 +1,6 @@
 package com.zhang.person;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.View;
@@ -26,6 +27,7 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
     private TextView personOrder;
     Intent intent;
     private TextView personLogin;
+    public static Context context;
     @Override
     public int bindLayout() {
         return R.layout.fragment_person;
@@ -33,6 +35,7 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public void initView() {
+        context=getContext();
         personImg = (ImageView) getActivity().findViewById(R.id.person_img);
         personPay = (TextView) getActivity().findViewById(R.id.person_pay);
         personWait = (TextView) getActivity().findViewById(R.id.person_wait);

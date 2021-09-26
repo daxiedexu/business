@@ -10,13 +10,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayout;
 import com.zhang.common.utils.Config;
 import com.zhang.common.utils.MyVPAdapter;
+import com.zhang.common.utils.back.SharedManger;
 import com.zhang.home.goods.entity.Goods;
 import com.zhang.mvp_core.view.BaseActivity;
 
@@ -37,8 +40,6 @@ public class CarActivity extends BaseActivity {
     private TabLayout carTab;
     private ViewPager carVp;
     private TextView carCar;
-
-
 
     @Autowired(name="car")
     Goods goods;
@@ -66,23 +67,30 @@ public class CarActivity extends BaseActivity {
         carGood_fragment.setArguments(bundle);
         particulars_fragment.setArguments(bundle);
 
+
+        SharedManger user=new SharedManger(this, "user");
+        boolean isLogin=user.getSharedPreferences( ).getBoolean("isLogin", false);
+
         carCar.setOnClickListener(new View.OnClickListener( ) {
             @Override
             public void onClick(View v) {
-                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(CarActivity.this);
-                View inflate=getLayoutInflater( ).inflate(R.layout.buy_item, null);
-                TextView b11=inflate.findViewById(R.id.buy_1);
-                TextView b22=inflate.findViewById(R.id.buy_2);
-                TextView b33=inflate.findViewById(R.id.buy_3);
-                b11.setText(goods.getGoodsDefaultSku());
-                b22.setText(goods.getGoodsDefaultSku());
-                b33.setText(goods.getGoodsDefaultSku());
 
-                bottomSheetDialog.setContentView(inflate);
-                bottomSheetDialog.show();
+                if(isLogin){
+                    BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(CarActivity.this);
+                    View inflate=getLayoutInflater( ).inflate(R.layout.buy_item, null);
+                    TextView b11=inflate.findViewById(R.id.buy_1);
+                    TextView b22=inflate.findViewById(R.id.buy_2);
+                    TextView b33=inflate.findViewById(R.id.buy_3);
+                    b11.setText(goods.getGoodsDefaultSku());
+                    b22.setText(goods.getGoodsDefaultSku());
+                    b33.setText(goods.getGoodsDefaultSku());
+                    bottomSheetDialog.setContentView(inflate);
+                    bottomSheetDialog.show();
+                }else {
+                    //ARouter.getInstance().build(Person_Config.LOGIN).greenChannel().navigation();
+                }
             }
         });
-
     }
 
     @Override

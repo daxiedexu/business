@@ -51,7 +51,6 @@ public class DetailActivity extends BaseMVPActivity implements View, OnItemClick
     protected void initData() {
         detailRv.setLayoutManager(new GridLayoutManager(this,2));
         ARouter.getInstance().inject(this);
-        Toast.makeText(this, key, Toast.LENGTH_SHORT).show( );
         GetGoodsListByKeywordReq getGoodsListByKeywordReq=new GetGoodsListByKeywordReq(key,1);
         goodsPresenter.getGoodsList(getGoodsListByKeywordReq);
     }

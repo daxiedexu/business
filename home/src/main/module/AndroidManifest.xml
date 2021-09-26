@@ -7,7 +7,8 @@
         <activity android:name=".SearchActivity" />
         <activity android:name=".DetailActivity"/>
         <activity android:name=".CarActivity"></activity>
-
+        <activity android:name=".LiveActivity"></activity>
+        <activity android:name=".LiveItemActivity"></activity>
     </application>
 
 </manifest>

@@ -150,7 +150,7 @@ public class RetrofitFactory {
      */
     public  class Retry implements Interceptor {
         public int maxRetry;//最大重试次数
-        private int retryNum = 0;//假如设置为3次重试的话，则最大可能请求4次（默认1次+3次重试）
+        private int retryNum = 0;
         public Retry(int maxRetry) {
             this.maxRetry = maxRetry;
         }

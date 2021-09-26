@@ -98,4 +98,6 @@ dependencies {
     //recyclerview间隔线
     implementation 'com.yanyusong.y_divideritemdecoration:y_divideritemdecoration:2.0'
 
+
+    implementation 'com.tencent.liteav:LiteAVSDK_Smart:latest.release'
 }
