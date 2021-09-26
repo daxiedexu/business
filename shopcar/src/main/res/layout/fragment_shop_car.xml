@@ -1,14 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ShopCarFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/shopCar_rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="购物车正在开发中..." />
+        android:layout_weight="9"
+        android:layout_height="0dp">
 
-</FrameLayout>
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+
+        <CheckBox
+            android:text="全选"
+            android:id="@+id/shop_check"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </CheckBox>
+        <TextView
+            android:id="@+id/tv"
+            android:layout_toEndOf="@+id/shop_check"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/red"
+            android:gravity="center"
+            android:text="合计：￥"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </TextView>
+        <TextView
+            android:layout_toEndOf="@+id/tv"
+            android:id="@+id/shop_price"
+            android:textColor="@color/red"
+            android:gravity="center"
+            android:text="0.00"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </TextView>
+
+        <Button
+            android:layout_alignParentRight="true"
+            android:id="@+id/shop_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="100dp"
+            android:text="去结算">
+
+        </Button>
+    </RelativeLayout>
+</LinearLayout>

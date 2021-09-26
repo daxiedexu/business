@@ -57,10 +57,11 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.aliyun.ams:alicloud-android-cloudcode:1.0.5'
     //导入依赖
     implementation libs.bottom
+    implementation ('com.alibaba:arouter-api:1.4.1') //ARouter依赖
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' //ARouter依赖
-    implementation 'com.aliyun.ams:alicloud-android-cloudcode:1.0.5'
     //BugLy异常依赖
     implementation 'com.tencent.bugly:crashreport:3.4.4'
     implementation 'com.tencent.bugly:nativecrashreport:3.9.2'

@@ -23,5 +23,7 @@ public class Config{
     public final static String MODULE_CAR="/car/car";
     public final static String DETAIL_KEY="detail_key";
     public final static Integer INTENT_PHOTO=100;
+    public final static String MODULE_GOODS="/shop/ShopCarFragment";
+
 
 }

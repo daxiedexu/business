@@ -1,12 +1,14 @@
-package com.zhang.mvp.presenter;
+package com.zhang.shopcar.presenter;
 
-import com.zhang.data.protocol.RegisterReq;
-import com.zhang.mvp.View;
-import com.zhang.mvp.repository.PersonRepositoryImpl;
 import com.zhang.mvp_core.presenter.BasePresenter;
+import com.zhang.shopcar.contract.GoodsContract;
+import com.zhang.shopcar.net.entitiy.GoodsCarEntitiy;
+import com.zhang.shopcar.net.resp.BaseResp;
+import com.zhang.shopcar.repository.GoodsRepository;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -14,39 +16,35 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.http.Body;
 
 /**
- * @ClassName PersonPresenterImpl
- * @Description TODO
- * @Author 张溢通
- * @Date 2021/9/21 19:29
- * @Version 1.0
- * Created by Android Studio.
- * User: 伊莎贝拉
+ * @ClassName GoodsCarPresenter
+ * @Author 孔晨亮
+ * @Date 2021/9/23 15:58
+ * User: msi
  */
-public class PersonPresenterImpl extends BasePresenter<PersonRepositoryImpl,View> {
+public class GoodsCarPresenter extends BasePresenter<GoodsRepository, GoodsContract> {
     @Inject
-    public PersonPresenterImpl() {
+    public GoodsCarPresenter() {
     }
-    public void register(@Body RegisterReq req){
-        rRepository.register(req)
+    public void showGoods(){
+        rRepository.reqGoodsCar()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>( ) {
+                .subscribe(new Observer<BaseResp<List<GoodsCarEntitiy>>>() {
                     @Override
                     public void onSubscribe(@NotNull Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(@NotNull String s) {
-                        vView.kindsSuccess(s);
+                    public void onNext(@NotNull BaseResp<List<GoodsCarEntitiy>> listBaseResp) {
+                        vView.goodsSuccess(listBaseResp.getData());
                     }
 
                     @Override
                     public void onError(@NotNull Throwable e) {
-
+                        vView.goodsFailds(e);
                     }
 
                     @Override

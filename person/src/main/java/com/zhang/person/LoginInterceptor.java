@@ -3,6 +3,7 @@ package com.zhang.person;
 import android.content.Context;
 import android.util.Log;
 
+
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Interceptor;
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback;
@@ -27,6 +28,7 @@ public class LoginInterceptor implements IInterceptor {
 
             switch (postcard.getPath( )){
                 case Config.MODULE_MAIN:
+                case Config.MODULE_GOODS:
                 case Config.MODULE_SPLASH:
                     callback.onContinue(postcard);  // 处理完成，交还控制权
                     break;

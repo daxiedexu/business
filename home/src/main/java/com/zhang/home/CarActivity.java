@@ -19,6 +19,10 @@ import com.zhang.common.utils.Config;
 import com.zhang.common.utils.MyVPAdapter;
 import com.zhang.home.goods.entity.Goods;
 import com.zhang.mvp_core.view.BaseActivity;
+import com.zhang.net.ShopCar;
+import com.zhang.net.Sqlutils;
+import com.zhang.net.db.DaoSession;
+import com.zhang.net.db.ShopCarDao;
 
 import java.util.ArrayList;
 
@@ -37,7 +41,7 @@ public class CarActivity extends BaseActivity {
     private TabLayout carTab;
     private ViewPager carVp;
     private TextView carCar;
-
+    private TextView carTv;
 
 
     @Autowired(name="car")
@@ -77,6 +81,22 @@ public class CarActivity extends BaseActivity {
                 b11.setText(goods.getGoodsDefaultSku());
                 b22.setText(goods.getGoodsDefaultSku());
                 b33.setText(goods.getGoodsDefaultSku());
+                inflate.findViewById(R.id.goodsCar).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        DaoSession daoUtils = Sqlutils.getInstance().getDaoUtils(CarActivity.this);
+                        ShopCarDao shopCarDao = daoUtils.getShopCarDao();
+
+                        ShopCar shopCar = new ShopCar();
+                        shopCar.setGoodsname(goods.getGoodsDesc());
+                        shopCar.setGoodsmsg(goods.getGoodsDefaultSku());
+                        shopCar.setPrice(goods.getGoodsDefaultPrice());
+                        shopCar.setPic(goods.getGoodsDefaultIcon());
+                        shopCar.setNum(1);
+                        shopCarDao.insert(shopCar);
+                        Toast.makeText(CarActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
                 bottomSheetDialog.setContentView(inflate);
                 bottomSheetDialog.show();
@@ -91,6 +111,14 @@ public class CarActivity extends BaseActivity {
         carTab = (TabLayout) findViewById(R.id.car_tab);
         carVp = (ViewPager) findViewById(R.id.car_vp);
         carCar = (TextView) findViewById(R.id.car_car);
+        carTv = (TextView) findViewById(R.id.car_tv);
+
+        carTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(Config.MODULE_GOODS).navigation();
+            }
+        });
     }
 
     @Override

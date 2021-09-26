@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id 'org.greenrobot.greendao' // apply plugin
 }
 def libs=rootProject.ext.dependencies
 def urls=rootProject.ext.url
@@ -32,6 +33,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+    greendao {
+        schemaVersion 1 //数据库版本号
+        daoPackage 'com.zhang.net.db'// 设置DaoMaster、DaoSession、Dao   一般包名+文件夹名
+        targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录   文件生成的目录，相当于父级目录
+    }
 }
 
 dependencies {
@@ -41,7 +47,7 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
+    implementation 'org.greenrobot:greendao:3.2.2' // add library
     //网络框架
     api 'com.squareup.okhttp3:okhttp:3.12.1'
     //日志拦截器
