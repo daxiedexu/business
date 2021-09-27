@@ -99,4 +99,5 @@ dependencies {
     //recyclerview间隔线
     implementation 'com.yanyusong.y_divideritemdecoration:y_divideritemdecoration:2.0'
     implementation 'org.greenrobot:greendao:3.2.2' // add library
+    implementation 'com.tencent.liteav:LiteAVSDK_Smart:latest.release'
 }

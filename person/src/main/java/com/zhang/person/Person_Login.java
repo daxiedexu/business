@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.zhang.common.utils.Config;
 import com.zhang.common.utils.back.SharedManger;
 import com.zhang.mvp_core.view.BaseActivity;
 
@@ -62,6 +63,7 @@ public class Person_Login extends BaseActivity {
             @Override
             public void onClick(View v) {
                 user.putValue("isLogin",true);
+                user.putValue("zh",loginUserName.getText().toString());
                 finish();
             }
         });

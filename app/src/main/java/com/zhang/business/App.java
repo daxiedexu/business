@@ -8,7 +8,6 @@ import com.alibaba.sdk.android.cloudcode.CloudCodeInitializer;
 import com.alibaba.sdk.android.cloudcode.CloudCodeLog;
 import com.alibaba.sdk.android.logger.LogLevel;
 import com.bw.di.BaseApplication;
-import com.taobao.sophix.SophixManager;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.zhang.common.utils.back.ProgressManger;
 
@@ -34,7 +33,10 @@ public class App extends BaseApplication {
             CloudCodeInitializer.init(this);
             CloudCodeLog.setLevel(LogLevel.DEBUG);
             CrashReport.initCrashReport(getApplicationContext(), "06a3451d22", BuildConfig.DEBUG);
-            SophixManager.getInstance().queryAndLoadNewPatch();//阿里热修复
+            //SophixManager.getInstance().queryAndLoadNewPatch();//阿里热修复
+            String licenceURL = "http://license.vod2.myqcloud.com/license/v1/4bac97fc83d3ab8b639caa97404262ac/TXLiveSDK.licence"; // 获取到的 licence url
+            String licenceKey = "b00c4624981fd467ae4add720153411a"; // 获取到的 licence key
+//            TXLiveBase.getInstance().setLicence(this, licenceURL, licenceKey);
         }
 
         // 必须在初始化ARouter之前配置

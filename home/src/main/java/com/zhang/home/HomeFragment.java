@@ -3,9 +3,11 @@ package com.zhang.home;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,8 +19,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
@@ -44,6 +49,7 @@ import com.zhouwei.mzbanner.holder.MZHolderCreator;
 import com.zhouwei.mzbanner.holder.MZViewHolder;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +57,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class HomeFragment extends BaseMVPFragment implements HomeContract, OnItemClickListener {
+public class HomeFragment extends BaseMVPFragment implements HomeContract,OnItemClickListener {
     private static final String TAG = "HomeFragment";
     private TextSwitcher fgHomeTextSwitcher;
     private Banner fgHomeBanner;
@@ -128,7 +134,6 @@ public class HomeFragment extends BaseMVPFragment implements HomeContract, OnIte
         });
         fgHomeBanner.start();
     }
-
     private void initMzBanner() {
         // 设置数据
         fgHomeMzBanner.setPages(imageList, new MZHolderCreator<BannerViewHolder>() {
@@ -139,7 +144,6 @@ public class HomeFragment extends BaseMVPFragment implements HomeContract, OnIte
         });
         fgHomeMzBanner.setIndicatorVisible(false);
     }
-
     class BannerViewHolder implements MZViewHolder<Integer> {
         private ImageView mImageView;
         @Override
@@ -149,7 +153,6 @@ public class HomeFragment extends BaseMVPFragment implements HomeContract, OnIte
             mImageView = (ImageView) view.findViewById(R.id.banner_image);
             return view;
         }
-
         @Override
         public void onBind(Context context, int position, Integer data) {
             // 数据绑定
@@ -191,8 +194,17 @@ public class HomeFragment extends BaseMVPFragment implements HomeContract, OnIte
                 return false;
             }
         };
-        fgHomeNet.setAdapter(netAdapter);
+
+        netAdapter.setOnItemClickListener(new OnItemClickListener( ) {
+            @Override
+            public void onItemClick(@NonNull @NotNull BaseQuickAdapter<?, ?> adapter, @NonNull @NotNull View view, int position) {
+                if(position==0){
+                    ARouter.getInstance().build(Config.MODULE_LIVE).greenChannel().navigation();
+                }
+            }
+        });
         fgHomeNet.setLayoutManager(gridLayoutManager);
+        fgHomeNet.setAdapter(netAdapter);
     }
 
     @Override
@@ -210,7 +222,7 @@ public class HomeFragment extends BaseMVPFragment implements HomeContract, OnIte
                 return false;
             }
         };
-        homeAdapter.setOnItemClickListener(this::onItemClick);
+        //homeAdapter.setOnItemClickListener(this::onItemClick);
         fgRecyclerGoods.setLayoutManager(new GridLayoutManager(getActivity(),2));
     }
 
@@ -223,6 +235,7 @@ public class HomeFragment extends BaseMVPFragment implements HomeContract, OnIte
     public void onItemClick(@NonNull @NotNull BaseQuickAdapter<?, ?> adapter, @NonNull @NotNull View view, int position) {
         Goods goods = (Goods) adapter.getItem(position);
         //设置传递数据
+
     }
 
     @Override
@@ -245,4 +258,6 @@ public class HomeFragment extends BaseMVPFragment implements HomeContract, OnIte
         super.onResume();
         fgHomeBanner.start();
     }
+
+
 }

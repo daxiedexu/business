@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.zhang.common.utils.Config;
 import com.zhang.common.utils.back.SharedManger;
 import com.zhang.mvp_core.view.BaseActivity;
 
@@ -28,15 +29,11 @@ public class Person_Register extends BaseActivity {
 
     @Override
     protected void initData() {
-        SharedManger user=new SharedManger(this, "user");
-
         registerUserName.addTextChangedListener(new TextChanged());
         registerUserPwd.addTextChangedListener(new TextChanged());
         registerBtn.setOnClickListener(new View.OnClickListener( ) {
             @Override
             public void onClick(View v) {
-                user.putValue("zh",registerUserName.getText().toString());
-                user.putValue("mm",registerUserPwd.getText().toString());
                 finish();
             }
         });

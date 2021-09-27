@@ -4,7 +4,7 @@
     package="com.zhang.business">
 
     <application
-        android:name=".HotApp"
+        android:name=".App"
         android:allowBackup="false"
         tools:replace="android:allowBackup"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +20,7 @@
             android:theme="@style/AppTheme.Splash">
 
         </activity>
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

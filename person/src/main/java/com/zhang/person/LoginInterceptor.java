@@ -25,7 +25,9 @@ public class LoginInterceptor implements IInterceptor {
 
     @Override
     public void process(Postcard postcard, InterceptorCallback callback) {
-
+        SharedManger user=new SharedManger(PersonFragment.context, "user");
+        boolean isLogin=user.getSharedPreferences( ).getBoolean("isLogin", false);
+        //callback.onContinue(postcard);  // 处理完成，交还控制权
             switch (postcard.getPath( )){
                 case Config.MODULE_MAIN:
                 case Config.MODULE_GOODS:
@@ -33,7 +35,12 @@ public class LoginInterceptor implements IInterceptor {
                     callback.onContinue(postcard);  // 处理完成，交还控制权
                     break;
                 default:
-                    callback.onInterrupt(null);// 觉得有问题，中断路由流程
+                    if (isLogin){
+                        callback.onContinue(postcard);  // 处理完成，交还控制权
+                    }else {
+                        callback.onInterrupt(null);// 中断路由流程
+                    }
+
                     break;
         }
     }

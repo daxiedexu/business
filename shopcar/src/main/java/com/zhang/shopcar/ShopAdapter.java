@@ -49,6 +49,7 @@ public class ShopAdapter extends BaseQuickAdapter<ShopCar, BaseViewHolder> {
         view.setChecked(shopCar.getIsCheck());
         bindViewClickListener(baseViewHolder,baseViewHolder.getItemViewType());
         addChildClickViewIds(R.id.shop_check);
+        addChildClickViewIds(R.id.shop_number);
 
 
     }

@@ -10,13 +10,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayout;
 import com.zhang.common.utils.Config;
 import com.zhang.common.utils.MyVPAdapter;
+import com.zhang.common.utils.back.SharedManger;
 import com.zhang.home.goods.entity.Goods;
 import com.zhang.mvp_core.view.BaseActivity;
 import com.zhang.net.ShopCar;
@@ -25,6 +28,7 @@ import com.zhang.net.db.DaoSession;
 import com.zhang.net.db.ShopCarDao;
 
 import java.util.ArrayList;
+
 
 /**
  * @ClassName CarActivity
@@ -42,7 +46,6 @@ public class CarActivity extends BaseActivity {
     private ViewPager carVp;
     private TextView carCar;
     private TextView carTv;
-
 
     @Autowired(name="car")
     Goods goods;
@@ -69,6 +72,10 @@ public class CarActivity extends BaseActivity {
         bundle.putParcelable("cargood",goods);
         carGood_fragment.setArguments(bundle);
         particulars_fragment.setArguments(bundle);
+
+
+        SharedManger user=new SharedManger(this, "user");
+        boolean isLogin=user.getSharedPreferences( ).getBoolean("isLogin", false);
 
         carCar.setOnClickListener(new View.OnClickListener( ) {
             @Override
@@ -100,9 +107,23 @@ public class CarActivity extends BaseActivity {
 
                 bottomSheetDialog.setContentView(inflate);
                 bottomSheetDialog.show();
+
+                if(isLogin){
+                    BottomSheetDialog bottomSheetDialog1=new BottomSheetDialog(CarActivity.this);
+                    View inflate1 = getLayoutInflater().inflate(R.layout.buy_item, null);
+                    TextView b1=inflate1.findViewById(R.id.buy_1);
+                    TextView b2=inflate1.findViewById(R.id.buy_2);
+                    TextView b3=inflate1.findViewById(R.id.buy_3);
+                    b1.setText(goods.getGoodsDefaultSku());
+                    b2.setText(goods.getGoodsDefaultSku());
+                    b3.setText(goods.getGoodsDefaultSku());
+                    bottomSheetDialog1.setContentView(inflate);
+                    bottomSheetDialog1.show();
+                }else {
+                    //ARouter.getInstance().build(Person_Config.LOGIN).greenChannel().navigation();
+                }
             }
         });
-
     }
 
     @Override

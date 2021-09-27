@@ -12,6 +12,7 @@
         android:layout_height="50dp">
     </ImageView>
     <TextView
+        android:background="@color/orange"
         android:id="@+id/net_title"
         android:textStyle="bold"
         android:textSize="16dp"
