@@ -1,6 +1,7 @@
 package com.zhang.home;
 
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -47,16 +48,24 @@ public class DetailActivity extends BaseMVPActivity implements View, OnItemClick
     @Autowired(name=Config.DETAIL_KEY)
     String key;
     private RecyclerView detailRv;
+    private TextView theme;
     @Override
     protected void initData() {
         detailRv.setLayoutManager(new GridLayoutManager(this,2));
         ARouter.getInstance().inject(this);
-        GetGoodsListByKeywordReq getGoodsListByKeywordReq=new GetGoodsListByKeywordReq(key,1);
-        goodsPresenter.getGoodsList(getGoodsListByKeywordReq);
+        if (key==null){
+            theme.setText("推荐页面");
+            GetGoodsListByKeywordReq getGoodsListByKeywordReq=new GetGoodsListByKeywordReq("1",1);
+            goodsPresenter.getGoodsList(getGoodsListByKeywordReq);
+        }else {
+            GetGoodsListByKeywordReq getGoodsListByKeywordReq=new GetGoodsListByKeywordReq(key,1);
+            goodsPresenter.getGoodsList(getGoodsListByKeywordReq);
+        }
     }
 
     @Override
     protected void initView() {
+        theme = (TextView) findViewById(R.id.theme);
         detailRv = (RecyclerView) findViewById(R.id.detail_rv);
 
     }

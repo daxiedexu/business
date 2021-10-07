@@ -2,6 +2,7 @@ package com.zhang.business;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -26,7 +27,8 @@ public class SplashActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus){
-            ARouter.getInstance().build(Config.MODULE_SPLASH).navigation();
+//            ARouter.getInstance().build(Config.MODULE_SPLASH).navigation();
+            startActivity(new Intent(SplashActivity.this,AdvActivity.class));
         }else {
             finish();
         }

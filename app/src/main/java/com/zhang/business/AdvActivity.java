@@ -2,6 +2,7 @@ package com.zhang.business;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -33,7 +34,8 @@ public class AdvActivity extends AppCompatActivity {
             public void loadFail(String s, String s1) {
                 Log.d(TAG,"加载广告位失败...");
                 Toast.makeText(AdvActivity.this, "加载广告位失败,直接跳转主页面", Toast.LENGTH_SHORT).show();
-                ARouter.getInstance().build(Config.MODULE_MAIN).navigation();
+//                ARouter.getInstance().build(Config.MODULE_MAIN).navigation();
+                startActivity(new Intent(AdvActivity.this,MainActivity.class));
                 finish();
             }
         });
@@ -69,7 +71,8 @@ public class AdvActivity extends AppCompatActivity {
     }
     private void goToMain() {
         // 开屏广告展示结束，跳转主界面
-        ARouter.getInstance().build(Config.MODULE_MAIN).navigation();
+//        ARouter.getInstance().build(Config.MODULE_MAIN).navigation();
+        startActivity(new Intent(AdvActivity.this,MainActivity.class));
         finish();
     }
     @Override

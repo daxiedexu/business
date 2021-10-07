@@ -84,6 +84,14 @@ public class PayActivity extends AppCompatActivity{
                 startActivity(intent);
             }
         });
+        payBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PayActivity.this, CashRegisterActivity.class);
+                intent.putExtra("money",price);
+                startActivity(intent);
+            }
+        });
     }
 
     protected void initView() {
