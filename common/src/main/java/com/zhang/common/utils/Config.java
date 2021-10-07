@@ -10,11 +10,9 @@ package com.zhang.common.utils;
  * User: 伊莎贝拉
  */
 public class Config{
-
-
-
     public final static String MODULE_SPLASH="/app/AdvActivity";//启动页跳转广告页
     public final static String MODULE_MAIN="/app/MainActivity";//广告页跳转主页面
+    public final static String MODULE_PAY="/app/PayActivity";//支付宝支付跳转页面
     public final static String MODULE_HOME="/home/home";
     public final static String MODULE_KINDS="/kinds/kinds";
     public final static String MODULE_MESSAGE="/message/message";
