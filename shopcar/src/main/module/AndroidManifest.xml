@@ -3,9 +3,14 @@
     package="com.zhang.shopcar">
 
     <application android:allowBackup="true">
+<<<<<<< HEAD
         <activity android:name=".AdressAddActivity"></activity>
         <activity android:name=".AdressActivity" />
         <activity android:name=".PayActivity" />
+=======
+        <activity android:name=".PayActivity"></activity>
+        <activity android:name=".CashRegisterActivity"></activity>
+>>>>>>> db06c375f054d83bd7b6880ccdd702c030fca51a
         <activity android:name=".ShopCarActivity" />
     </application>
 
