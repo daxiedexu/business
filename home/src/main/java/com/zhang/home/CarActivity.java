@@ -47,6 +47,7 @@ public class CarActivity extends BaseActivity {
     private ViewPager carVp;
     private TextView carCar;
     private TextView carTv;
+    boolean isLogin;
 
     @Autowired(name="car")
     Goods goods;
@@ -75,56 +76,10 @@ public class CarActivity extends BaseActivity {
         particulars_fragment.setArguments(bundle);
 
 
-        SharedManger user=new SharedManger(this, "user");
-        boolean isLogin=user.getSharedPreferences( ).getBoolean("isLogin", false);
 
-        carCar.setOnClickListener(new View.OnClickListener( ) {
-            @Override
-            public void onClick(View v) {
-                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(CarActivity.this);
-                View inflate=getLayoutInflater( ).inflate(R.layout.buy_item, null);
-                TextView b11=inflate.findViewById(R.id.buy_1);
-                TextView b22=inflate.findViewById(R.id.buy_2);
-                TextView b33=inflate.findViewById(R.id.buy_3);
-                b11.setText(goods.getGoodsDefaultSku());
-                b22.setText(goods.getGoodsDefaultSku());
-                b33.setText(goods.getGoodsDefaultSku());
-                inflate.findViewById(R.id.goodsCar).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        DaoSession daoUtils = Sqlutils.getInstance().getDaoUtils(CarActivity.this);
-                        ShopCarDao shopCarDao = daoUtils.getShopCarDao();
 
-                        ShopCar shopCar = new ShopCar();
-                        shopCar.setGoodsname(goods.getGoodsDesc());
-                        shopCar.setGoodsmsg(goods.getGoodsDefaultSku());
-                        shopCar.setPrice(goods.getGoodsDefaultPrice());
-                        shopCar.setPic(goods.getGoodsDefaultIcon());
-                        shopCar.setNum(1);
-                        shopCarDao.insert(shopCar);
-                        Toast.makeText(CarActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
-                    }
-                });
 
-//                bottomSheetDialog.setContentView(inflate);
-//                bottomSheetDialog.show();
 
-                if(isLogin){
-                    BottomSheetDialog bottomSheetDialog1=new BottomSheetDialog(CarActivity.this);
-                    View inflate1 = getLayoutInflater().inflate(R.layout.buy_item, null);
-                    TextView b1=inflate1.findViewById(R.id.buy_1);
-                    TextView b2=inflate1.findViewById(R.id.buy_2);
-                    TextView b3=inflate1.findViewById(R.id.buy_3);
-                    b1.setText(goods.getGoodsDefaultSku());
-                    b2.setText(goods.getGoodsDefaultSku());
-                    b3.setText(goods.getGoodsDefaultSku());
-                    bottomSheetDialog1.setContentView(inflate);
-                    bottomSheetDialog1.show();
-                }else {
-                    ARouter.getInstance().build(Person_Config.LOGIN).greenChannel().navigation();
-                }
-            }
-        });
     }
 
     @Override
@@ -139,8 +94,6 @@ public class CarActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 ARouter.getInstance().build(Config.MODULE_GOODS).greenChannel().navigation();
-
-                Toast.makeText(CarActivity.this, "55", Toast.LENGTH_SHORT).show( );
             }
         });
     }
@@ -148,5 +101,51 @@ public class CarActivity extends BaseActivity {
     @Override
     protected int bindLayout() {
         return R.layout.car;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume( );
+        SharedManger user=new SharedManger(this, "user");
+        isLogin=user.getSharedPreferences( ).getBoolean("isLogin", false);
+        carCar.setOnClickListener(new View.OnClickListener( ) {
+            @Override
+            public void onClick(View v) {
+                if(isLogin){
+                    BottomSheetDialog bottomSheetDialog1=new BottomSheetDialog(CarActivity.this);
+                    View inflate1 = getLayoutInflater().inflate(R.layout.buy_item, null);
+                    TextView b1=inflate1.findViewById(R.id.buy_1);
+                    TextView b2=inflate1.findViewById(R.id.buy_2);
+                    TextView b3=inflate1.findViewById(R.id.buy_3);
+                    b1.setText(goods.getGoodsDefaultSku());
+                    b2.setText(goods.getGoodsDefaultSku());
+                    b3.setText(goods.getGoodsDefaultSku());
+                    bottomSheetDialog1.setContentView(inflate1);
+                    bottomSheetDialog1.show();
+
+                    inflate1.findViewById(R.id.goodsCar).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            DaoSession daoUtils = Sqlutils.getInstance().getDaoUtils(CarActivity.this);
+                            ShopCarDao shopCarDao = daoUtils.getShopCarDao();
+                            ShopCar shopCar = new ShopCar();
+                            shopCar.setGoodsname(goods.getGoodsDesc());
+                            shopCar.setGoodsmsg(goods.getGoodsDefaultSku());
+                            shopCar.setPrice(goods.getGoodsDefaultPrice());
+                            shopCar.setPic(goods.getGoodsDefaultIcon());
+                            shopCar.setNum(1);
+                            shopCarDao.insert(shopCar);
+                            Toast.makeText(CarActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }else {
+                    ARouter.getInstance().build(Person_Config.LOGIN).greenChannel().navigation();
+                }
+
+            }
+        });
+
+
     }
 }

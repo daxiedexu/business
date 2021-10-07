@@ -68,7 +68,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginVertical="@dimen/dp20"
         android:background="@color/white"
         android:orientation="vertical"
         android:layout_width="match_parent"

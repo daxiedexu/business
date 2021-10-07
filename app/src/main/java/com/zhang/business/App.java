@@ -46,8 +46,8 @@ public class App extends BaseApplication {
             ARouter.openDebug();
         }
         ARouter.init(this);
-        String licenceURL = "http://license.vod2.myqcloud.com/license/v1/4bac97fc83d3ab8b639caa97404262ac/TXLiveSDK.licence"; // 获取到的 licence url
-        String licenceKey = "b00c4624981fd467ae4add720153411a"; // 获取到的 licence key
+        String licenceURL = "https://license.vod2.myqcloud.com/license/v2/1305875465_1/v_cube.license"; // 获取到的 licence url
+        String licenceKey = "9e68b2164b89299715e6ef4279c9ae5b"; // 获取到的 licence key
         TXLiveBase.getInstance().setLicence(this, licenceURL, licenceKey);
     }
 }

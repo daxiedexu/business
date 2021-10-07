@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus){
-            ARouter.getInstance().build(Config.MODULE_SPLASH).navigation();
+            ARouter.getInstance().build(Config.MODULE_SPLASH).greenChannel().navigation();
         }else {
             finish();
         }

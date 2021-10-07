@@ -69,7 +69,7 @@ public class AdvActivity extends AppCompatActivity {
     }
     private void goToMain() {
         // 开屏广告展示结束，跳转主界面
-        ARouter.getInstance().build(Config.MODULE_MAIN).navigation();
+        ARouter.getInstance().build(Config.MODULE_MAIN).greenChannel().navigation();
         finish();
     }
     @Override

@@ -28,21 +28,20 @@ public class LoginInterceptor implements IInterceptor {
         SharedManger user=new SharedManger(PersonFragment.context, "user");
         boolean isLogin=user.getSharedPreferences( ).getBoolean("isLogin", false);
         //callback.onContinue(postcard);  // 处理完成，交还控制权
-            switch (postcard.getPath( )){
-                case Config.MODULE_MAIN:
-                case Config.MODULE_GOODS:
-                case Config.MODULE_SPLASH:
-                    callback.onContinue(postcard);  // 处理完成，交还控制权
-                    break;
-                default:
+//            switch (postcard.getPath( )){
+//                case Config.MODULE_MAIN:
+//                case Config.MODULE_GOODS:
+//                case Config.MODULE_SPLASH:
+//                    callback.onContinue(postcard);  // 处理完成，交还控制权
+//                    break;
+//                default:
                     if (isLogin){
                         callback.onContinue(postcard);  // 处理完成，交还控制权
                     }else {
                         callback.onInterrupt(null);// 中断路由流程
                     }
 
-                    break;
-        }
+
     }
 
     @Override
