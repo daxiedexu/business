@@ -9,6 +9,10 @@ import com.alibaba.sdk.android.cloudcode.CloudCodeLog;
 import com.alibaba.sdk.android.logger.LogLevel;
 import com.bw.di.BaseApplication;
 import com.tencent.bugly.crashreport.CrashReport;
+<<<<<<< HEAD
+=======
+
+>>>>>>> b121c995f9a26ffc5719bb29437850e5089d786e
 import com.zhang.common.utils.back.ProgressManger;
 
 /**
