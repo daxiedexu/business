@@ -56,8 +56,6 @@ dependencies {
     implementation project(path: ':di')
     implementation files('libs\\UPPayAssistEx.jar')
     implementation files('libs\\UPPayPluginExPro.jar')
-    implementation files('libs\\UPPayAssistEx.jar')
-    implementation files('libs\\UPPayPluginExPro.jar')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
