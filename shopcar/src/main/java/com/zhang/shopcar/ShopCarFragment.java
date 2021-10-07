@@ -171,12 +171,6 @@ public class ShopCarFragment extends BaseMVPFragment implements GoodsContract {
                         shopCarDao.update(shopCar);
                     }
                 }
-//                for (int i = 0; i < shopCars.size(); i++) {
-//                    if (shopCars.get(i).getIsCheck()){
-
-//                    }
-//                }
-
                 Intent intent = new Intent(getActivity(), PayActivity.class);
                 startActivity(intent);
 

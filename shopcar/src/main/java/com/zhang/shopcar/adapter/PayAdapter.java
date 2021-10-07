@@ -12,6 +12,7 @@ import com.zhang.net.ShopCar;
 import com.zhang.shopcar.R;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -24,14 +25,13 @@ import ren.qinc.numberbutton.NumberButton;
  * User: msi
  */
 public class PayAdapter extends BaseQuickAdapter<ShopCar, BaseViewHolder> {
-    public PayAdapter(int layoutResId, List<ShopCar> list) {
-        super(layoutResId,list);
-
+    public PayAdapter(int layoutResId, @Nullable List<ShopCar> data) {
+        super(layoutResId, data);
     }
 
     @Override
     protected void convert(@NotNull BaseViewHolder baseViewHolder, ShopCar shopCar) {
-        Glide.with(getContext()).load(shopCar.getPic()).into((ImageView) baseViewHolder.getView(R.id.pay_item_im));
+        Glide.with(getContext()).load(shopCar.getPic()).into((ImageView) baseViewHolder.findView(R.id.pay_item_im));
         baseViewHolder.setText(R.id.pay_item_name,shopCar.getGoodsname());
         baseViewHolder.setText(R.id.pay_item_msg,shopCar.getGoodsmsg());
         baseViewHolder.setText(R.id.pay_item_price,shopCar.getPrice()+"");

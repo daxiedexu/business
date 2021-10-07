@@ -21,21 +21,22 @@
             android:windowSoftInputMode="adjustResize"/>
         <!-- 银联支付end -->
         <activity android:name=".YingLianActivity"/>
-        <activity android:name=".PayActivity"></activity>
+        <activity android:name=".PayTwoActivity"></activity>
         <!--广告页-->
         <activity android:name=".AdvActivity" />
         <!-- 开屏启动页 -->
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.Splash">
-        </activity>
-        <!--主页面-->
-        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <!--主页面-->
+        <activity android:name=".MainActivity">
+
         </activity>
         <uses-library
             android:name="org.simalliance.openmobileapi"

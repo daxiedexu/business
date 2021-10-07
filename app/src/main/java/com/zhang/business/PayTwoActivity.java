@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alipay.sdk.app.EnvUtils;
 import com.alipay.sdk.app.PayTask;
-import com.blankj.utilcode.util.ToastUtils;
 import com.zhang.business.pay.PayResult;
 import com.zhang.business.pay.util.OrderInfoUtil2_0;
 import com.zhang.common.utils.Config;
@@ -23,7 +22,7 @@ import com.zhang.common.utils.Config;
 import java.util.Map;
 
 @Route(path = Config.MODULE_PAY)
-public class PayActivity extends AppCompatActivity {
+public class PayTwoActivity extends AppCompatActivity {
 
     private Button pay;
     /**
@@ -73,10 +72,10 @@ public class PayActivity extends AppCompatActivity {
                     // 判断resultStatus 为9000则代表支付成功
                     if (TextUtils.equals(resultStatus, "9000")) {
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
-                        Toast.makeText(PayActivity.this, "支付成功!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PayTwoActivity.this, "支付成功!", Toast.LENGTH_SHORT).show();
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
-                        Toast.makeText(PayActivity.this, "支付失败!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PayTwoActivity.this, "支付失败!", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -128,7 +127,7 @@ public class PayActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                PayTask alipay = new PayTask(PayActivity.this);
+                PayTask alipay = new PayTask(PayTwoActivity.this);
                 Map<String, String> result = alipay.payV2(orderInfo, true);
                 Log.i("msp", result.toString());
 

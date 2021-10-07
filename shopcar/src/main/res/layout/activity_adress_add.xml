@@ -71,6 +71,7 @@
 
             </TextView>
             <EditText
+                android:id="@+id/add_phone"
                 android:background="#FFFFFF"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -91,6 +92,7 @@
 
             </TextView>
             <EditText
+                android:id="@+id/add_adress"
                 android:background="#FFFFFF"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

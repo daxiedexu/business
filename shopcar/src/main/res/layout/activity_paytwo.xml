@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -44,8 +44,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
             <TextView
+                android:textColor="#333232"
                 android:id="@+id/pay_name"
-                android:textSize="15dp"
+                android:textSize="20dp"
                 android:layout_margin="@dimen/dp_10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -53,7 +54,7 @@
             </TextView>
             <TextView
                 android:id="@+id/pay_phone"
-                android:textSize="10dp"
+                android:textSize="15dp"
                 android:layout_margin="@dimen/dp_10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -74,15 +75,16 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/pay_address"
-        android:id="@+id/pay_rv"
+        android:id="@+id/pay_shop_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </androidx.recyclerview.widget.RecyclerView>
     <LinearLayout
-        android:layout_below="@+id/pay_rv"
+        android:layout_below="@+id/pay_shop_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -128,41 +130,52 @@
             </TextView>
         </LinearLayout>
     </LinearLayout>
-    <RelativeLayout
-        android:layout_alignParentBottom="true"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_weight="8"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-        <TextView
-            android:id="@+id/tv"
-            android:layout_marginLeft="30dp"
-            android:textColor="@color/red"
-            android:gravity="center"
-            android:text="合计：￥"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp">
+            <TextView
+                android:id="@+id/tv"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/red"
+                android:gravity="center"
+                android:text="合计：￥"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp">
 
-        </TextView>
-        <TextView
-            android:layout_toEndOf="@+id/tv"
-            android:id="@+id/pay_price"
-            android:textColor="@color/red"
-            android:gravity="center"
-            android:text="0.00"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp">
+            </TextView>
+            <TextView
+                android:layout_toEndOf="@+id/tv"
+                android:id="@+id/pay_price"
+                android:textColor="@color/red"
+                android:gravity="center"
+                android:text="0.00"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp">
 
-        </TextView>
+            </TextView>
 
-        <Button
-            android:layout_alignParentRight="true"
-            android:id="@+id/pay_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:text="提交订单">
+            <Button
+                android:layout_alignParentRight="true"
+                android:id="@+id/pay_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:text="提交订单">
 
-        </Button>
-    </RelativeLayout>
-</RelativeLayout>
+            </Button>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
