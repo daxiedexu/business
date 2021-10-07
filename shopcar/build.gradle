@@ -49,15 +49,17 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':home')
     compile 'ren.qinc.numberbutton:numberbutton:0.0.1'
     implementation 'q.rorbin:VerticalTabLayout:1.2.5'
 //网络框架
     implementation 'com.squareup.okhttp3:okhttp:3.12.1'
 //日志拦截器
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
-
+//EventBus依赖
+    implementation 'org.greenrobot:eventbus:3.2.0'
 //Android X 包含DM RecyclerView
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.android.material:material:1.2.1'
 //万能适配器
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.0'
     implementation ('com.alibaba:arouter-api:1.4.1') //ARouter依赖
@@ -82,4 +84,5 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    compile (name: 'alipaysdk-noutdid-15.8.03.210428205839', ext: 'aar')
 }

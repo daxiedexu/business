@@ -7,11 +7,13 @@
 
     <LinearLayout style="@style/orange">
         <TextView
+            android:id="@+id/theme"
             android:gravity="center"
             android:textColor="@color/white"
             android:text="商品详情"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></TextView>
+            android:layout_height="match_parent">
+        </TextView>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

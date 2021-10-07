@@ -8,6 +8,7 @@ import com.alibaba.sdk.android.cloudcode.CloudCodeInitializer;
 import com.alibaba.sdk.android.cloudcode.CloudCodeLog;
 import com.alibaba.sdk.android.logger.LogLevel;
 import com.bw.di.BaseApplication;
+import com.taobao.sophix.SophixManager;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.rtmp.TXLiveBase;
 import com.zhang.common.utils.back.ProgressManger;
@@ -34,8 +35,7 @@ public class App extends BaseApplication {
             CloudCodeInitializer.init(this);
             CloudCodeLog.setLevel(LogLevel.DEBUG);
             CrashReport.initCrashReport(getApplicationContext(), "06a3451d22", BuildConfig.DEBUG);
-            //SophixManager.getInstance().queryAndLoadNewPatch();//阿里热修复
-
+//            SophixManager.getInstance().queryAndLoadNewPatch();//阿里热修复
         }
 
         // 必须在初始化ARouter之前配置
@@ -46,8 +46,10 @@ public class App extends BaseApplication {
             ARouter.openDebug();
         }
         ARouter.init(this);
+
         String licenceURL = "https://license.vod2.myqcloud.com/license/v2/1305875465_1/v_cube.license"; // 获取到的 licence url
         String licenceKey = "9e68b2164b89299715e6ef4279c9ae5b"; // 获取到的 licence key
         TXLiveBase.getInstance().setLicence(this, licenceURL, licenceKey);
+
     }
 }

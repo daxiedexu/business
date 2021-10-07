@@ -9,7 +9,6 @@ import com.zhang.net.db.DaoSession;
 
 public class Sqlutils {
     public static Sqlutils sqlutils;
-    public DaoSession daoSession;
 
     public static Sqlutils getInstance() {
         if (sqlutils==null){
@@ -26,18 +25,18 @@ public class Sqlutils {
         SQLiteDatabase writableDatabase = helper.getWritableDatabase();
         DaoMaster daoMaster = new DaoMaster(writableDatabase);
 
-        daoSession = daoMaster.newSession();
+        DaoSession daoSession = daoMaster.newSession();
         return daoSession;
     }
-//    public void addDao(ShopCar shopCar){
-//        shopCarDao.insert(shopCar);
-//    }
-//    public List<ShopCar> showDao(){
-//        List<ShopCar> shopCars = shopCarDao.loadAll();
-//        return shopCars;
-//    }
-    public void clearDao(){
-        daoSession.clear();
+    public DaoSession getDaoUser(Context context){
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "user");
+        SQLiteDatabase writableDatabase = helper.getWritableDatabase();
+        DaoMaster daoMaster = new DaoMaster(writableDatabase);
+
+        DaoSession daoSession = daoMaster.newSession();
+        return daoSession;
     }
+
+
 
 }

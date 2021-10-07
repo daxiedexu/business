@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdressAddActivity">
+    <RelativeLayout
+        android:id="@+id/top"
+        android:orientation="horizontal"
+        android:background="#ff8800"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <TextView
+            android:text="新建地址"
+            android:layout_marginLeft="32dp"
+            android:textSize="16dp"
+            android:textColor="#FFFFFF"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <ImageView
+            android:id="@+id/back"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/icon_back"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp">
+
+        </ImageView>
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#EDEBEB"
+        android:layout_weight="6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:textColor="#454444"
+                android:padding="@dimen/dp_10"
+                android:text="联系人："
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+            <EditText
+                android:id="@+id/add_name"
+                android:background="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </EditText>
+        </LinearLayout>
+        <LinearLayout
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:textColor="#454444"
+                android:padding="@dimen/dp_10"
+                android:text="联系方式："
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+            <EditText
+                android:id="@+id/add_phone"
+                android:background="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </EditText>
+        </LinearLayout>
+        <LinearLayout
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:textColor="#454444"
+                android:padding="@dimen/dp_10"
+                android:text="详细地址："
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+            <EditText
+                android:id="@+id/add_adress"
+                android:background="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </EditText>
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:text="保存"
+        android:id="@+id/add_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </Button>
+</LinearLayout>

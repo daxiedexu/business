@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdressActivity">
+    <RelativeLayout
+        android:id="@+id/top"
+        android:orientation="horizontal"
+        android:background="#ff8800"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <TextView
+            android:text="地址管理"
+            android:layout_marginLeft="32dp"
+            android:textSize="16dp"
+            android:textColor="#FFFFFF"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <ImageView
+            android:id="@+id/back"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/icon_back"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp">
+
+        </ImageView>
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/adress_rv"
+        android:layout_weight="8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <Button
+        android:text="添加地址"
+        android:id="@+id/adress_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </Button>
+</LinearLayout>

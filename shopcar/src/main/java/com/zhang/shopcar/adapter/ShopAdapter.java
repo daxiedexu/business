@@ -1,4 +1,4 @@
-package com.zhang.shopcar;
+package com.zhang.shopcar.adapter;
 
 import android.util.Log;
 import android.view.View;
@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.zhang.net.ShopCar;
+import com.zhang.shopcar.R;
 
 import org.jetbrains.annotations.NotNull;
 
