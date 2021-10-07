@@ -13,6 +13,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.blankj.utilcode.util.PermissionUtils;
 import com.zhang.business.adapter.FragmentAdapter;
 import com.zhang.common.utils.Config;
+import com.zhang.common.utils.back.ChannelUtil;
 import com.zhang.common.utils.page.NoScrollViewPager;
 import com.zhang.home.HomeFragment;
 import com.zhang.kinds.view.KindsFragment;
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         PermissionUtils.permission(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE}).request();//请求读写权限
         initView();
         initBottom();
+        String channel = ChannelUtil.getChannel(this);
+        Toast.makeText(this, channel, Toast.LENGTH_SHORT).show();
     }
 
     private void initView() {
