@@ -4,6 +4,7 @@
 
     <application android:allowBackup="true">
         <activity android:name=".PayActivity"></activity>
+        <activity android:name=".CashRegisterActivity"></activity>
         <activity android:name=".ShopCarActivity" />
     </application>
 

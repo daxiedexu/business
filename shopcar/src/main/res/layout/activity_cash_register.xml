@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/mTotalPriceTv"
+        android:gravity="right"
+        android:padding="15dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </TextView>
+    <TextView android:id="@+id/mAlipayTypeTv"
+        android:text="支付宝支付"
+        android:drawableLeft="@mipmap/pay_type_alipay"
+        android:layout_below="@id/mTotalPriceTv"
+        android:padding="15dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </TextView>
+    <TextView android:id="@+id/mWeixinTypeTv"
+        android:text="微信支付"
+        android:drawableLeft="@mipmap/pay_type_weixin"
+        android:layout_below="@id/mAlipayTypeTv"
+        android:padding="15dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <TextView android:id="@+id/mBankCardTypeTv"
+        android:text="银行卡支付"
+        android:drawableLeft="@mipmap/pay_type_bank"
+        android:layout_below="@id/mWeixinTypeTv"
+        android:padding="15dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </TextView>
+    <Button
+        android:id="@+id/mPayBtn"
+        android:text="立即支付"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
