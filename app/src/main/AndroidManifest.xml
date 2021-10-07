@@ -21,7 +21,6 @@
             android:windowSoftInputMode="adjustResize"/>
         <!-- 银联支付end -->
         <activity android:name=".YingLianActivity"/>
-        <activity android:name=".PayTwoActivity"></activity>
         <!--广告页-->
         <activity android:name=".AdvActivity" />
         <!-- 开屏启动页 -->

@@ -1,6 +1,6 @@
-package com.zhang.business.pay.util;
+package com.zhang.shopcar.pay.util;
 
-import com.zhang.business.pay.SignUtils;
+import com.zhang.shopcar.pay.SignUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
