@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zhang.mvp_core.view.BaseMVPActivity;
@@ -41,6 +45,8 @@ public class PayActivity extends BaseMVPActivity implements GoodsContract {
     private Button payBtn;
     ArrayList<ShopCar> shopList;
     int price=0;
+    private ImageView back;
+    private TextView tv;
 
     @Override
     protected void injectCompoent() {
@@ -85,6 +91,21 @@ public class PayActivity extends BaseMVPActivity implements GoodsContract {
             price+=shopList.get(i).getPrice();
         }
         payPrice.setText(price+"");
+        back = (ImageView) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PayActivity.this, ShopCarActivity.class);
+                startActivity(intent);
+            }
+        });
+        payAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PayActivity.this, AdressActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

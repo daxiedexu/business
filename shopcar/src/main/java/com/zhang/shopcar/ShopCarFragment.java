@@ -156,7 +156,11 @@ public class ShopCarFragment extends BaseMVPFragment implements GoodsContract {
                         shopCar.setGoodsname(shopCars.get(i).getGoodsname());
                         shopCar.setId(shopCars.get(i).getId());
                         shopCarDao.update(shopCar);
-
+                        shopCars.remove(i);
+                        shopAdapter.notifyItemRemoved(i);
+                        shopAdapter.notifyDataSetChanged();
+                        shopPrice.setText(0+"");
+                        shopCheck.setChecked(false);
                     }else {
                         ShopCar shopCar = new ShopCar();
                         shopCar.setPrice(shopCars.get(i).getPrice());
@@ -169,8 +173,7 @@ public class ShopCarFragment extends BaseMVPFragment implements GoodsContract {
                 }
 //                for (int i = 0; i < shopCars.size(); i++) {
 //                    if (shopCars.get(i).getIsCheck()){
-                        shopCars.clear();
-                        shopAdapter.notifyDataSetChanged();
+
 //                    }
 //                }
 

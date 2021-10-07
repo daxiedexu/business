@@ -21,6 +21,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
+        <ImageView
+            android:id="@+id/back"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/icon_back"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp">
+
+        </ImageView>
     </RelativeLayout>
     <LinearLayout
         android:layout_below="@+id/top"
