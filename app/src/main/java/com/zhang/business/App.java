@@ -9,7 +9,7 @@ import com.alibaba.sdk.android.cloudcode.CloudCodeLog;
 import com.alibaba.sdk.android.logger.LogLevel;
 import com.bw.di.BaseApplication;
 import com.tencent.bugly.crashreport.CrashReport;
-import com.tencent.rtmp.TXLiveBase;
+
 import com.zhang.common.utils.back.ProgressManger;
 
 /**
@@ -48,6 +48,6 @@ public class App extends BaseApplication {
         ARouter.init(this);
         String licenceURL = "http://license.vod2.myqcloud.com/license/v1/4bac97fc83d3ab8b639caa97404262ac/TXLiveSDK.licence"; // 获取到的 licence url
         String licenceKey = "b00c4624981fd467ae4add720153411a"; // 获取到的 licence key
-        TXLiveBase.getInstance().setLicence(this, licenceURL, licenceKey);
+//        TXLiveBase.getInstance().setLicence(this, licenceURL, licenceKey);
     }
 }
