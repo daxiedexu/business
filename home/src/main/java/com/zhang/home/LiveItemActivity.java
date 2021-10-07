@@ -28,7 +28,7 @@ public class LiveItemActivity extends BaseActivity {
 
         //关键 player 对象与界面 view
         mLivePlayer.setPlayerView(mView);
-        String flvUrl = "https://tv.cctv.com/live/index.shtml?spm=C28340.P9dhkRStLqPh.ENlPq2DiQc4R.2";
+        String flvUrl = "http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8";
         mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
     }
 

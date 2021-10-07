@@ -26,6 +26,7 @@ import com.zhang.net.ShopCar;
 import com.zhang.net.Sqlutils;
 import com.zhang.net.db.DaoSession;
 import com.zhang.net.db.ShopCarDao;
+import com.zhang.person.Person_Config;
 
 import java.util.ArrayList;
 
@@ -105,8 +106,8 @@ public class CarActivity extends BaseActivity {
                     }
                 });
 
-                bottomSheetDialog.setContentView(inflate);
-                bottomSheetDialog.show();
+//                bottomSheetDialog.setContentView(inflate);
+//                bottomSheetDialog.show();
 
                 if(isLogin){
                     BottomSheetDialog bottomSheetDialog1=new BottomSheetDialog(CarActivity.this);
@@ -120,7 +121,7 @@ public class CarActivity extends BaseActivity {
                     bottomSheetDialog1.setContentView(inflate);
                     bottomSheetDialog1.show();
                 }else {
-                    //ARouter.getInstance().build(Person_Config.LOGIN).greenChannel().navigation();
+                    ARouter.getInstance().build(Person_Config.LOGIN).greenChannel().navigation();
                 }
             }
         });
@@ -137,7 +138,9 @@ public class CarActivity extends BaseActivity {
         carTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ARouter.getInstance().build(Config.MODULE_GOODS).navigation();
+                ARouter.getInstance().build(Config.MODULE_GOODS).greenChannel().navigation();
+
+                Toast.makeText(CarActivity.this, "55", Toast.LENGTH_SHORT).show( );
             }
         });
     }

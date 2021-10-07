@@ -1,6 +1,7 @@
 package com.zhang.home;
 
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -65,7 +66,7 @@ public class LiveActivity extends BaseActivity implements OnItemClickListener {
 
     @Override
     public void onItemClick(@NonNull @NotNull BaseQuickAdapter<?, ?> adapter, @NonNull @NotNull View view, int position) {
-        ARouter.getInstance().build(Config.MODULE_LIVE_ITEM).navigation();
+        ARouter.getInstance().build(Config.MODULE_LIVE_ITEM).greenChannel().navigation();
     }
 
     public class LiveAdapter extends BaseQuickAdapter<String, BaseViewHolder>{
